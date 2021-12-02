@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header">        
+        <a class="btn btn-success" routerLink="/agregar-equipo-basquetbol/" >Agregar equipo</a>
+    </div>
+    <div class="card-body">
+        <h1>Equipos de basquetbol por torneo</h1>
+       <table class="table">
+           <thead>
+               <tr>
+                   <th>Id</th>
+                   <th>Nombre</th>
+                   <th>Pais</th>                   
+                   <th>Torneo</th>        
+                   <th>Acciones</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr *ngFor="let equipo of Equipos; let iControl=index">
+                   <td >{{equipo.id_equipo}}</td>
+                   <td>{{equipo.nombre}}</td>
+                   <td>{{equipo.pais}}</td>                   
+                   <td>{{equipo.torneo}}</td>  
+                   <td><a class="btn btn-primary" routerLink="/editar-equipo-basquetbol/{{equipo.id_equipo}}" >Editar</a>  |
+                    
+                    <a class="btn btn-danger" (click)="borrarRegistro(equipo.id_equipo,iControl)" role="button">Eliminar</a> |
+                    <a class="btn btn-secondary" routerLink="/listar-partido-equipo-basquetbol/{{equipo.nombre}}" >Ver partidos</a> 
+                    </td>
+               </tr>              
+           </tbody>
+       </table>
+       
+    </div>
+    
+</div>
+

@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header">
+        Editar torneo de basquetbol
+    </div>
+    <div class="card-body">
+        <form ngNativeValidate [formGroup]="formularioDeTorneo" (ngSubmit)="enviarDatos()">
+            <div class="mb-3">
+              <label for="" class="form-label">Nombre</label>
+              <input type="text"
+                class="form-control" required formControlName="nombre" name="" id="" aria-describedby="helpId" placeholder="Escribe el nombre">
+              
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Pais</label>
+                <input type="text"
+                  class="form-control" required formControlName="pais" name="" id="" aria-describedby="helpId" placeholder="Escribe el pais">
+                
+              </div>
+            
+
+            <div class="btn-group" role="group" aria-label="">
+                <button type="submit" class="btn btn-success">Modificar</button>
+                <button type="button" routerLink="/listar-torneo-basquetbol/" class="btn btn-primary">Cancelar</button>                
+            </div>
+
+        </form>
+    </div>
+   
+</div>
+

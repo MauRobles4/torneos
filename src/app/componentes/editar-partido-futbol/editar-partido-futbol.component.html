@@ -1,0 +1,57 @@
+<div class="card ">
+    <div class="card-header">
+        Editar partido de futbol
+    </div>
+    <div class="card-body">
+        <form ngNativeValidate [formGroup]="formularioDePartido" (ngSubmit)="enviarDatos()">
+            <div class="mb-3">
+                <label for="" class="form-label">Equipo 1</label>
+                <select class="form-control" name=""  formControlName="equipo1" id="">
+                  <option *ngFor="let equipo of Equipos; let iControl=index">{{equipo.nombre}}</option>
+                                    
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Equipo 2</label>
+                <select class="form-control" name=""  formControlName="equipo2" id="">
+                  <option *ngFor="let equipo of Equipos; let iControl=index">{{equipo.nombre}}</option>
+                                    
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Horario</label>
+                <input required type="datetime-local" formControlName="horario"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">                
+              </div>
+
+            <div class="mb-3">
+              <label for="" class="form-label">Estadio</label>
+              <input required type="text"
+                class="form-control" name="" formControlName="estadio" id="" aria-describedby="helpId" placeholder="Escribe el estadio">
+              
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Lugar</label>
+                <input required type="text"
+                  class="form-control" name="pais" formControlName="lugar" id="" aria-describedby="helpId" placeholder="Escribe el lugar">
+                
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Torneo</label>
+                <select class="form-control" name=""  formControlName="torneo" id="">
+                  <option *ngFor="let torneo of Torneos; let iControl=index">{{torneo.nombre}}</option>
+                                    
+                </select>
+              </div>
+
+            <div class="btn-group" role="group" aria-label="">
+                <button type="submit" class="btn btn-success">Editar</button>
+                <button type="button" routerLink="/listar-partido-futbol/" class="btn btn-primary">Cancelar</button>                
+            </div>
+
+        </form>
+    </div>
+   
+</div>

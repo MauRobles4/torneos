@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header">        
+        <a class="btn btn-success" routerLink="/agregar-torneo/" >Agregar torneo</a>
+    </div>
+    <div class="card-body">
+        <h1>Torneos de basquetbol</h1>
+       <table class="table">
+           <thead>
+               <tr>
+                   <th>Id</th>
+                   <th>Nombre</th>
+                   <th>Pais/Lugar</th>                   
+                   <th>Acciones</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr *ngFor="let torneo of Torneos; let iControl=index">
+                   <td >{{torneo.id_torneo}}</td>
+                   <td>{{torneo.nombre}}</td>
+                   <td>{{torneo.pais}}</td>                   
+                   <td><a class="btn btn-primary" routerLink="/editar-torneo-basquetbol/{{torneo.id_torneo}}" >Editar</a>  |
+                    
+                    <a class="btn btn-danger" (click)="borrarRegistro(torneo.id_torneo,iControl)" role="button">Eliminar</a> |
+                    <a class="btn btn-secondary" routerLink="/listar-partidos-torneo-basquetbol/{{torneo.nombre}}" >Ver partidos</a> |
+                    <a class="btn btn-secondary" routerLink="/listar-equipos-torneo-basquetbol/{{torneo.nombre}}" >Ver equipos</a> |
+                    <a class="btn btn-secondary" routerLink="/agregar-partido-basquetbol-torneo/{{torneo.nombre}}" >Agregar partido</a>
+                    </td>
+               </tr>              
+           </tbody>
+       </table>
+       
+    </div>
+    
+</div>
+
