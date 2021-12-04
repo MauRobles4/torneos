@@ -10,7 +10,8 @@ import {Router,ActivatedRoute} from '@angular/router';
 export class ListarPartidoEquipoBasquetbolComponent implements OnInit {
   Partidos:any;
   equipo:any;
-
+  filterPost = ''; 
+  
   constructor(
     private activateRoute:ActivatedRoute,
     private torneoService:TorneoService

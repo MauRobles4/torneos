@@ -4,6 +4,7 @@
     </div>
     <div class="card-body">
         <h1>Partidos por torneo de futbol</h1>
+        <input type="text" class="form-control" name="filterPost" placeholder="Buscar" [(ngModel)]="filterPost">
        <table class="table">
            <thead>
                <tr>
@@ -16,7 +17,7 @@
                </tr>
            </thead>
            <tbody>
-               <tr *ngFor="let partido of Partidos; let iControl=index">
+               <tr *ngFor="let partido of Partidos | filterPartido:filterPost; let iControl=index">
                    <td >{{partido.id_partido}}</td>
                    <td>{{partido.equipo1}} VS {{partido.equipo2}}</td>
                    <td>{{partido.horario}}</td>

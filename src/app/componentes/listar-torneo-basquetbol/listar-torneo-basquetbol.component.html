@@ -4,6 +4,7 @@
     </div>
     <div class="card-body">
         <h1>Torneos de basquetbol</h1>
+        <input type="text" class="form-control" name="filterPost" placeholder="Buscar" [(ngModel)]="filterPost">
        <table class="table">
            <thead>
                <tr>
@@ -14,7 +15,7 @@
                </tr>
            </thead>
            <tbody>
-               <tr *ngFor="let torneo of Torneos; let iControl=index">
+               <tr *ngFor="let torneo of Torneos | filterTorneo:filterPost; let iControl=index">
                    <td >{{torneo.id_torneo}}</td>
                    <td>{{torneo.nombre}}</td>
                    <td>{{torneo.pais}}</td>                   

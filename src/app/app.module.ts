@@ -32,6 +32,9 @@ import { AgregarEquipoBasquetbolComponent } from './componentes/agregar-equipo-b
 import { HomeComponent } from './componentes/home/home.component';
 import { AgregarPartidoFutbolTorneoComponent } from './componentes/agregar-partido-futbol-torneo/agregar-partido-futbol-torneo.component';
 import { AgregarPartidoBasquetbolTorneoComponent } from './componentes/agregar-partido-basquetbol-torneo/agregar-partido-basquetbol-torneo.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { FilterPartidoPipe } from './pipes/filter-partido.pipe';
+import { FilterTorneoPipe } from './pipes/filter-torneo.pipe';
 
 
 @NgModule({
@@ -62,7 +65,10 @@ import { AgregarPartidoBasquetbolTorneoComponent } from './componentes/agregar-p
     AgregarEquipoBasquetbolComponent,
     HomeComponent,
     AgregarPartidoFutbolTorneoComponent,
-    AgregarPartidoBasquetbolTorneoComponent
+    AgregarPartidoBasquetbolTorneoComponent,
+    FilterPipe,
+    FilterPartidoPipe,
+    FilterTorneoPipe
   ],
   imports: [
     BrowserModule,

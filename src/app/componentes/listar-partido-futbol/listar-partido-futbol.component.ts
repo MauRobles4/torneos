@@ -8,6 +8,7 @@ import { TorneoService } from 'src/app/servicio/torneo.service';
 })
 export class ListarPartidoFutbolComponent implements OnInit {
   Partidos:any;
+  filterPost = ''; 
 
   constructor(
     private torneoService:TorneoService

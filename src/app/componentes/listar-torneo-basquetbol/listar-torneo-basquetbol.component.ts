@@ -8,6 +8,7 @@ import { TorneoService } from 'src/app/servicio/torneo.service';
 })
 export class ListarTorneoBasquetbolComponent implements OnInit {
   Torneos:any;
+  filterPost = ''; 
 
   constructor(
     private torneoService:TorneoService

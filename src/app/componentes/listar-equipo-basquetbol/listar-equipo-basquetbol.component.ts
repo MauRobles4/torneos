@@ -10,10 +10,12 @@ import { TorneoService } from 'src/app/servicio/torneo.service';
 export class ListarEquipoBasquetbolComponent implements OnInit {
 
   Equipos:any;
+  filterPost = ''; 
   constructor(
     private torneoService:TorneoService
-
-  ) { }
+    
+    ) { }
+    
 
   ngOnInit(): void {
     this.torneoService.ObtenerEquiposBasquetbol().subscribe(respuesta=>{
