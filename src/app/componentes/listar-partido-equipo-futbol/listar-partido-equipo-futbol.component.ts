@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TorneoService } from 'src/app/servicio/torneo.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-listar-partido-equipo-futbol',
@@ -11,6 +12,11 @@ export class ListarPartidoEquipoFutbolComponent implements OnInit {
   Partidos: any;
   equipo: any;
   filterPost = '';
+
+  page_size: number = 10;
+  page_number: number = 1;
+  pageSizeOptions = [5, 10, 20, 50, 100]
+
   constructor(
     private activateRoute: ActivatedRoute,
     private torneoService: TorneoService
@@ -26,6 +32,11 @@ export class ListarPartidoEquipoFutbolComponent implements OnInit {
       console.log(respuesta);
       this.Partidos = respuesta;
     });
+  }
+
+  handlePage(e: PageEvent) {
+    this.page_size = e.pageSize;
+    this.page_number = e.pageIndex + 1;
   }
 
   borrarRegistro(id: any, iControl: any) {

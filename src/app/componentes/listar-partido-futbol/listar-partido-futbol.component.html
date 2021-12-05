@@ -1,3 +1,11 @@
+<mat-paginator [length]="Partidos.length"
+               [pageSize]="page_size"
+               [pageSizeOptions]="pageSizeOptions"
+               (page)="handlePage($event)"
+               showFirstLastButtons
+               aria-label="Select page">
+</mat-paginator>
+
 <div class="card">
     <div class="card-header">        
         <a class="btn btn-success" routerLink="/agregar-partido-futbol/" >Agregar partido de futbol</a>
@@ -17,7 +25,7 @@
                </tr>
            </thead>
            <tbody>
-               <tr *ngFor="let partido of Partidos | filterPartido:filterPost; let iControl=index">
+               <tr *ngFor="let partido of Partidos | filterPartido:filterPost | paginate:page_size:page_number; let iControl=index">
                    <td >{{partido.id_partido}}</td>
                    <td>{{partido.equipo1}} VS {{partido.equipo2}}</td>
                    <td>{{partido.horario}}</td>

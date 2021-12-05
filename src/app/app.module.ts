@@ -35,6 +35,10 @@ import { AgregarPartidoBasquetbolTorneoComponent } from './componentes/agregar-p
 import { FilterPipe } from './pipes/filter.pipe';
 import { FilterPartidoPipe } from './pipes/filter-partido.pipe';
 import { FilterTorneoPipe } from './pipes/filter-torneo.pipe';
+import { PaginatePipe } from './pipes/paginate.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator'; 
+import { CustomPaginatorIntl } from './paginator-es';
 
 
 @NgModule({
@@ -68,16 +72,25 @@ import { FilterTorneoPipe } from './pipes/filter-torneo.pipe';
     AgregarPartidoBasquetbolTorneoComponent,
     FilterPipe,
     FilterPartidoPipe,
-    FilterTorneoPipe
+    FilterTorneoPipe,
+    PaginatePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{
+    // PAGINACION 
+    provide: MatPaginatorIntl,
+    useClass: CustomPaginatorIntl
+  }
+],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

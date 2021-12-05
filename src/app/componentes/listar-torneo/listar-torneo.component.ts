@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 
 import { TorneoService } from 'src/app/servicio/torneo.service';
 
@@ -12,6 +13,10 @@ export class ListarTorneoComponent implements OnInit {
   Torneos:any;
   filterPost = ''; 
 
+  page_size: number = 10;
+  page_number: number = 1;
+  pageSizeOptions = [5, 10, 20, 50, 100];
+
   constructor(
     private torneoService:TorneoService
   ) { }
@@ -21,6 +26,11 @@ export class ListarTorneoComponent implements OnInit {
       console.log(respuesta);
       this.Torneos=respuesta;
     });
+  }
+
+  handlePage(e: PageEvent) {
+    this.page_size = e.pageSize;
+    this.page_number = e.pageIndex + 1;
   }
 
   borrarRegistro(id:any,iControl:any){

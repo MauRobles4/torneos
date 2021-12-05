@@ -1,3 +1,11 @@
+<mat-paginator [length]="Torneos.length"
+               [pageSize]="page_size"
+               [pageSizeOptions]="pageSizeOptions"
+               (page)="handlePage($event)"
+               showFirstLastButtons
+               aria-label="Select page">
+</mat-paginator>
+
 <div class="card">
     <div class="card-header">
         <a class="btn btn-success" routerLink="/agregar-torneo/">Agregar torneo</a>
@@ -15,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let torneo of Torneos | filterTorneo:filterPost; let iControl=index">
+                <tr *ngFor="let torneo of Torneos | filterTorneo:filterPost | paginate:page_size:page_number; let iControl=index">
                     <td>{{torneo.id_torneo}}</td>
                     <td>{{torneo.nombre}}</td>
                     <td>{{torneo.pais}}</td>

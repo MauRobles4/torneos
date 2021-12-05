@@ -1,3 +1,11 @@
+<mat-paginator [length]="Equipos.length"
+               [pageSize]="page_size"
+               [pageSizeOptions]="pageSizeOptions"
+               (page)="handlePage($event)"
+               showFirstLastButtons
+               aria-label="Select page">
+</mat-paginator>
+
 <div class="card">
     <div class="card-header">        
         <a class="btn btn-success" routerLink="/agregar-equipo-basquetbol/" >Agregar equipo</a>
@@ -16,7 +24,7 @@
                </tr>
            </thead>
            <tbody>
-               <tr *ngFor="let equipo of Equipos | filter:filterPost; let iControl=index">
+               <tr *ngFor="let equipo of Equipos | filter:filterPost | paginate:page_size:page_number; let iControl=index">
                    <td >{{equipo.id_equipo}}</td>
                    <td>{{equipo.nombre}}</td>
                    <td>{{equipo.pais}}</td>                   
