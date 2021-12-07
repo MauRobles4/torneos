@@ -39,6 +39,7 @@ import { PaginatePipe } from './pipes/paginate.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator'; 
 import { CustomPaginatorIntl } from './paginator-es';
+import { LoginComponent } from './componentes/login/login.component';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { CustomPaginatorIntl } from './paginator-es';
     FilterPipe,
     FilterPartidoPipe,
     FilterTorneoPipe,
-    PaginatePipe
+    PaginatePipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

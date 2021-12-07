@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
       
     });
     // OBTENER FECHA
-    this.time =this.today.getFullYear() + "-" +(this.today.getMonth()+1) + "-" + (this.today.getDay()+1) + " " + this.today.getHours() + ":" + this.today.getMinutes() + ":" + this.today.getSeconds();
+    this.time =this.today.getFullYear() + "-" +(this.today.getMonth()+1) + "-" + (this.today.getDay()+8) + " " + this.today.getHours() + ":" + this.today.getMinutes() + ":" + this.today.getSeconds();
     console.log(this.time);
 
     this.torneoService.ObtenerProximosPartidosFutbol(this.time).subscribe(respuesta=>{
