@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header">
+        Agregar Usuario
+    </div>
+    <div class="card-body">
+        <form ngNativeValidate [formGroup]="formularioDeUsuario" (ngSubmit)="enviarDatos()">
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre</label>
+                <input required type="text" class="form-control" name="" formControlName="nombre" id=""
+                    aria-describedby="helpId" placeholder="Escribe el nombre">
+
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Usuario</label>
+                <input required type="text" class="form-control" name="" formControlName="usuario" id=""
+                    aria-describedby="helpId" placeholder="Escribe el usuario">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Contraseña</label>
+                <input required type="text" class="form-control" name="" formControlName="contrasena" id=""
+                    aria-describedby="helpId" placeholder="Escribe la contraseña">
+
+            </div>
+
+            <div class="btn-group" role="group" aria-label="">
+                <button type="submit" class="btn btn-success">Agregar</button>
+                <button type="button" routerLink="/login/" class="btn btn-primary">Cancelar</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>

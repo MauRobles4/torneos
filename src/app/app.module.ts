@@ -40,6 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator'; 
 import { CustomPaginatorIntl } from './paginator-es';
 import { LoginComponent } from './componentes/login/login.component';
+import { AgregarUsuarioComponent } from './componentes/agregar-usuario/agregar-usuario.component';
 
 
 @NgModule({
@@ -75,7 +76,8 @@ import { LoginComponent } from './componentes/login/login.component';
     FilterPartidoPipe,
     FilterTorneoPipe,
     PaginatePipe,
-    LoginComponent
+    LoginComponent,
+    AgregarUsuarioComponent
   ],
   imports: [
     BrowserModule,

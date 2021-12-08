@@ -169,6 +169,11 @@ export class TorneoService {
 
   }
 
+  AgregarUsuario(datosUsuario:any):Observable<any>{
+    return this.clientHttp.post(this.API+"?insertarUsuario=1",datosUsuario);
+
+  }
+
 
   AgregarEquipo(datosEquipo:Equipo):Observable<any>{
     return this.clientHttp.post(this.API+"?insertarEquipo=1",datosEquipo);
@@ -194,5 +199,8 @@ export class TorneoService {
     return this.clientHttp.get(this.API+"?fecha_final");
   }
 
+  LoginUser(datosUsuario:any):Observable<any>{
+    return this.clientHttp.get(this.API+"?login_user=",datosUsuario);
+  }
 
 }

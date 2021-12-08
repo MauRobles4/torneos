@@ -7,6 +7,7 @@ import { AgregarPartidoBasquetbolComponent } from './componentes/agregar-partido
 import { AgregarPartidoFutbolTorneoComponent } from './componentes/agregar-partido-futbol-torneo/agregar-partido-futbol-torneo.component';
 import { AgregarPartidoFutbolComponent } from './componentes/agregar-partido-futbol/agregar-partido-futbol.component';
 import { AgregarTorneoComponent } from './componentes/agregar-torneo/agregar-torneo.component';
+import { AgregarUsuarioComponent } from './componentes/agregar-usuario/agregar-usuario.component';
 import { EditarEquipoBasquetbolComponent } from './componentes/editar-equipo-basquetbol/editar-equipo-basquetbol.component';
 import { EditarEquipoFutbolComponent } from './componentes/editar-equipo-futbol/editar-equipo-futbol.component';
 import { EditarPartidoBasquetbolComponent } from './componentes/editar-partido-basquetbol/editar-partido-basquetbol.component';
@@ -26,6 +27,7 @@ import { ListarPartidosTorneoBasquetbolComponent } from './componentes/listar-pa
 import { ListarPartidosTorneoComponent } from './componentes/listar-partidos-torneo/listar-partidos-torneo.component';
 import { ListarTorneoBasquetbolComponent } from './componentes/listar-torneo-basquetbol/listar-torneo-basquetbol.component';
 import { ListarTorneoComponent } from './componentes/listar-torneo/listar-torneo.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 const routes: Routes = [
   {path:'',pathMatch:'full',redirectTo:'home'},
@@ -54,6 +56,8 @@ const routes: Routes = [
   {path:'listar-partido-equipo-basquetbol/:equipo',component:ListarPartidoEquipoBasquetbolComponent},
   {path:'agregar-partido-futbol-torneo/:torneo',component:AgregarPartidoFutbolTorneoComponent},
   {path:'agregar-partido-basquetbol-torneo/:torneo',component:AgregarPartidoBasquetbolTorneoComponent},
+  {path:'login',component:LoginComponent},
+  {path:'agregar-usuario',component:AgregarUsuarioComponent},
   {path:'home',component:HomeComponent}
   
 
