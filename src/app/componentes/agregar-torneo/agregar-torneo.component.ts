@@ -31,6 +31,7 @@ export class AgregarTorneoComponent implements OnInit {
     console.log(this.formularioDeTorneo.value);
     this.torneoService.AgregarTorneo(this.formularioDeTorneo.value).subscribe(respuesta=>{
     // this.ruteador.navigateByUrl('/listar-torneo');
+    console.log(respuesta);
     alert("Torneo agregado con exito ");
 
     });

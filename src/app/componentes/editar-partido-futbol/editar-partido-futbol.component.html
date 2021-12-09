@@ -1,4 +1,4 @@
-<div class="card ">
+<div class="card col-5 ">
     <div class="card-header">
         Editar partido de futbol
     </div>
@@ -7,7 +7,7 @@
             <div class="mb-3">
                 <label for="" class="form-label">Equipo 1</label>
                 <select class="form-control" name=""  formControlName="equipo1" id="">
-                  <option *ngFor="let equipo of Equipos; let iControl=index">{{equipo.nombre}}</option>
+                  <option disabled="disabled" *ngFor="let equipo of Equipos; let iControl=index">{{equipo.nombre}}</option>
                                     
                 </select>
               </div>
@@ -15,7 +15,7 @@
               <div class="mb-3">
                 <label for="" class="form-label">Equipo 2</label>
                 <select class="form-control" name=""  formControlName="equipo2" id="">
-                  <option *ngFor="let equipo of Equipos; let iControl=index">{{equipo.nombre}}</option>
+                  <option disabled="disabled" *ngFor="let equipo of Equipos; let iControl=index">{{equipo.nombre}}</option>
                                     
                 </select>
               </div>

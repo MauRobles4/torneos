@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
     private ruteador: Router
   ) {
     this.formularioDeLogin = this.formulario.group({
-      id:['1'],
       usuario: [''],
       contrasena: [''],
 
@@ -30,17 +29,19 @@ export class LoginComponent implements OnInit {
   enviarDatos(): any {
     // console.log("Me presionaste ");
     console.log(this.formularioDeLogin.value);
-    this.torneoService.LoginUser(this.formularioDeLogin.value).subscribe(respuesta => {
-      console.log(respuesta);
-      console.log(respuesta.status);
-      if ((respuesta !="")){
+    this.torneoService.LoginUser(this.formularioDeLogin.value).subscribe(datos => {
+      console.log(datos);
+      // console.log(respuesta.status);
+      // datos.success != ""
+      if ((datos['resultado'] == "OK")) {
         this.ruteador.navigateByUrl('/home');
-
-      }else if(respuesta.status==200){
-        console.log(respuesta.data);
+        
+      }
+      else {
         alert("Usuario o contraseña incorrecto");
       }
     
+
       // alert("Equipo agregado con exito ");
 
     });
