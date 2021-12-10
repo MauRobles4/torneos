@@ -41,6 +41,9 @@ import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator'
 import { CustomPaginatorIntl } from './paginator-es';
 import { LoginComponent } from './componentes/login/login.component';
 import { AgregarUsuarioComponent } from './componentes/agregar-usuario/agregar-usuario.component';
+import { ListarUsuariosComponent } from './componentes/listar-usuarios/listar-usuarios.component';
+import { FilterUsuarioPipe } from './pipes/filter-usuario.pipe';
+import { EditarUsuarioComponent } from './componentes/editar-usuario/editar-usuario.component';
 
 
 @NgModule({
@@ -77,7 +80,10 @@ import { AgregarUsuarioComponent } from './componentes/agregar-usuario/agregar-u
     FilterTorneoPipe,
     PaginatePipe,
     LoginComponent,
-    AgregarUsuarioComponent
+    AgregarUsuarioComponent,
+    ListarUsuariosComponent,
+    FilterUsuarioPipe,
+    EditarUsuarioComponent
   ],
   imports: [
     BrowserModule,

@@ -29,6 +29,10 @@ export class TorneoService {
     return this.clientHttp.get(this.API+"?torneo_basquetbol");
   }
 
+  ObtenerUsuarios(){
+    return this.clientHttp.get(this.API+"?consultar_usuarios");
+  }
+
   ObtenerEquiposFutbol(){
     return this.clientHttp.get(this.API+"?equipo_futbol");
   }
@@ -87,6 +91,11 @@ export class TorneoService {
 
   }
 
+  BorrarUsuario(id:any):Observable<any>{
+    return this.clientHttp.get(this.API+"?borrar_usuario="+id);
+
+  }
+
   BorrarEquipoFutbol(id:any):Observable<any>{
     return this.clientHttp.get(this.API+"?borrar_futbol="+id);
 
@@ -114,6 +123,11 @@ export class TorneoService {
 
   ObtenerTorneoBasquetbol(id:any):Observable<any>{
     return this.clientHttp.get(this.API+"?consultar_torneo_basquetbol="+id);
+
+  }
+
+  ObtenerUsuario(id:any):Observable<any>{
+    return this.clientHttp.get(this.API+"?consultar_usuario="+id);
 
   }
 
@@ -146,6 +160,11 @@ export class TorneoService {
 
   EditarTorneoBasquetbol(id:any,datosTorneo:any):Observable<any>{
     return this.clientHttp.post(this.API+"?actualizar_torneo_basquetbol="+id,datosTorneo);
+
+  }
+
+  EditarUsuario(id:any,datosUsuario:any):Observable<any>{
+    return this.clientHttp.post(this.API+"?actualizar_usuario="+id,datosUsuario);
 
   }
 

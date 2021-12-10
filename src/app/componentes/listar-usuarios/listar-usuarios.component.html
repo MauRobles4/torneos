@@ -1,0 +1,44 @@
+<mat-paginator [length]="Usuarios.length"
+               [pageSize]="page_size"
+               [pageSizeOptions]="pageSizeOptions"
+               (page)="handlePage($event)"
+               showFirstLastButtons
+               aria-label="Select page">
+</mat-paginator>
+
+<div class="card">
+    <div class="card-header">        
+        <a class="btn btn-success" routerLink="/agregar-usuario/" >Agregar nuevo usuario</a>
+    </div>
+    <div class="card-body">
+        <input type="text" class="form-control" name="filterPost" placeholder="Buscar" [(ngModel)]="filterPost">
+        <h1>Usuarios</h1>
+       <table class="table">
+           <thead>
+               <tr>
+                   <th>Id</th>
+                   <th>Nombre</th>
+                   <th>Correo electronico</th>
+                   <th>Tipo</th>
+                   <th>Acciones</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr *ngFor="let usuario of Usuarios | filterUsuario:filterPost | paginate:page_size:page_number; let iControl=index ">
+                   <td >{{usuario.id_usuario}}</td>
+                   <td>{{usuario.nombre}}</td>
+                   <td>{{usuario.correo}}</td>                   
+                   <td>{{usuario.tipo}}</td>
+                   <td><a class="btn btn-primary" routerLink="/editar-usuario/{{usuario.id_usuario}}" >Editar</a>  |
+                    
+                    <a class="btn btn-danger" (click)="borrarRegistro(usuario.id_usuario,iControl)" role="button">Eliminar</a>
+                    </td>
+               </tr>              
+           </tbody>
+       </table>
+       
+    </div>
+    
+</div>
+
+

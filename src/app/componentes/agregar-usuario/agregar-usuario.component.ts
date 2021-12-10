@@ -17,8 +17,9 @@ export class AgregarUsuarioComponent implements OnInit {
   ) {
     this.formularioDeUsuario = this.formulario.group({
       nombre: [''],
-      usuario: [''],
-      contrasena: ['']
+      correo: [''],
+      contrasena: [''],
+      tipo_usuario: ['']
     });
   }
 
@@ -30,7 +31,13 @@ export class AgregarUsuarioComponent implements OnInit {
     console.log(this.formularioDeUsuario.value);
     this.torneoService.AgregarUsuario(this.formularioDeUsuario.value).subscribe(respuesta => {
       console.log(respuesta);
-      this.ruteador.navigateByUrl('/login');
+      if(respuesta["success"]!=="1"){
+        this.ruteador.navigateByUrl('/login');
+        
+      }else{
+        alert("Correo electronico ya registrado");
+
+      }
       // alert("Equipo agregado con exito ");
 
     });
