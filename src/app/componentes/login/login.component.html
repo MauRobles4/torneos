@@ -3,26 +3,26 @@
         Inicia sesion
     </div>
     <div class="card-body">
-        <form ngNativeValidate [formGroup]="formularioDeLogin" (ngSubmit)="enviarDatos()">
+        <form ngNativeValidate >
 
 
             <div class="mb-3">
                 <label for="" class="form-label">Usuario</label>
-                <input required type="text" class="form-control" name="" formControlName="usuario" id=""
+                <input required type="text" class="form-control" #user id=""
                     aria-describedby="helpId" placeholder="Escribe el usuario">
 
             </div>
 
             <div class="mb-3">
                 <label for="" class="form-label">Contraseña</label>
-                <input required type="password" class="form-control" name="" formControlName="contrasena" id=""
+                <input required type="password" class="form-control" #password id=""
                     aria-describedby="helpId" placeholder="Escribe la Contraseña">
 
             </div>
            
            
             <div class="btn-group" role="group" aria-label="">
-                <button type="submit" class="btn btn-success">Iniciar sesion</button>
+                <button type="button" (click)="enviarDatos(user.value,password.value)" class="btn btn-success">Iniciar sesion</button>
                 <!-- <button type="button" routerLink="/listar-torneo/" class="btn btn-primary">Cancelar</button> -->
                 <br><br>
             </div>

@@ -218,8 +218,10 @@ export class TorneoService {
     return this.clientHttp.get(this.API+"?fecha_final");
   }
 
-  LoginUser(datosUsuario:any):Observable<any>{
-    return this.clientHttp.get(this.API+"?login_user=",datosUsuario);
+  LoginUser(usuario:string, password:string):Observable<any>{
+    return this.clientHttp.get(`${this.API}index.php?login_user=1&user=${usuario}&pas=${password}`);
+    // return this.http.get(${this.url}APIgastos.php?iniciosesion=1&user=${user}&pas=${password});
+
   }
 
 }

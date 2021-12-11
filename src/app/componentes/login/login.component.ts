@@ -26,19 +26,22 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  enviarDatos(): any {
+  enviarDatos(usuario: string, password:string){
     // console.log("Me presionaste ");
-    console.log(this.formularioDeLogin.value);
-    this.torneoService.LoginUser(this.formularioDeLogin.value).subscribe(datos => {
+    // console.log(this.formularioDeLogin.value);
+    console.log(usuario + password);
+    this.torneoService.LoginUser(usuario,password).subscribe(datos => {
       console.log(datos);
       // console.log(respuesta.status);
       // datos.success != ""
       if ((datos['resultado'] == "OK")) {
+        alert((datos['mesaje']));
         this.ruteador.navigateByUrl('/home');
         
-      }
-      else {
+      }else {
         alert("Usuario o contraseña incorrecto");
+        // this.ruteador.navigateByUrl('/login');
+        // alert("Usuario o contraseña incorrecto");
       }
     
 

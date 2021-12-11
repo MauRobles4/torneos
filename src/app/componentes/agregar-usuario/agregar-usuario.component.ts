@@ -31,12 +31,14 @@ export class AgregarUsuarioComponent implements OnInit {
     console.log(this.formularioDeUsuario.value);
     this.torneoService.AgregarUsuario(this.formularioDeUsuario.value).subscribe(respuesta => {
       console.log(respuesta);
-      if(respuesta["success"]!=="1"){
+      if ((respuesta['resultado'] == "OK")) {
+        alert((respuesta['mesaje']));
         this.ruteador.navigateByUrl('/login');
         
-      }else{
+      }else {
         alert("Correo electronico ya registrado");
-
+        // this.ruteador.navigateByUrl('/login');
+        // alert("Usuario o contraseña incorrecto");
       }
       // alert("Equipo agregado con exito ");
 
