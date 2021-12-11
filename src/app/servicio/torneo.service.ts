@@ -224,4 +224,8 @@ export class TorneoService {
 
   }
 
+  ObtenerEquiposMasPartidos(){
+    return this.clientHttp.get(this.API+"?equiposMasPartidos");
+  }
+
 }

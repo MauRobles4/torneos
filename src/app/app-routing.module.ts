@@ -15,6 +15,7 @@ import { EditarPartidoFutbolComponent } from './componentes/editar-partido-futbo
 import { EditarTorneoBasquetbolComponent } from './componentes/editar-torneo-basquetbol/editar-torneo-basquetbol.component';
 import { EditarTorneoComponent } from './componentes/editar-torneo/editar-torneo.component';
 import { EditarUsuarioComponent } from './componentes/editar-usuario/editar-usuario.component';
+import { GraficasFutbolComponent } from './componentes/graficas-futbol/graficas-futbol.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { ListarEquipoBasquetbolComponent } from './componentes/listar-equipo-basquetbol/listar-equipo-basquetbol.component';
 import { ListarEquipoFutbolComponent } from './componentes/listar-equipo-futbol/listar-equipo-futbol.component';
@@ -62,7 +63,8 @@ const routes: Routes = [
   {path:'agregar-usuario',component:AgregarUsuarioComponent},
   {path:'editar-usuario/:id',component:EditarUsuarioComponent},
   {path:'listar-usuarios',component:ListarUsuariosComponent},
-  {path:'home',component:HomeComponent}
+  {path:'home',component:HomeComponent},
+  {path:'graficas-futbol',component:GraficasFutbolComponent}
   
 
 

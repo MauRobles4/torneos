@@ -44,6 +44,8 @@ import { AgregarUsuarioComponent } from './componentes/agregar-usuario/agregar-u
 import { ListarUsuariosComponent } from './componentes/listar-usuarios/listar-usuarios.component';
 import { FilterUsuarioPipe } from './pipes/filter-usuario.pipe';
 import { EditarUsuarioComponent } from './componentes/editar-usuario/editar-usuario.component';
+import { NgChartsModule } from 'ng2-charts';
+import { GraficasFutbolComponent } from './componentes/graficas-futbol/graficas-futbol.component';
 
 
 @NgModule({
@@ -83,7 +85,8 @@ import { EditarUsuarioComponent } from './componentes/editar-usuario/editar-usua
     AgregarUsuarioComponent,
     ListarUsuariosComponent,
     FilterUsuarioPipe,
-    EditarUsuarioComponent
+    EditarUsuarioComponent,
+    GraficasFutbolComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +95,8 @@ import { EditarUsuarioComponent } from './componentes/editar-usuario/editar-usua
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgChartsModule
   ],
   providers: [{
     // PAGINACION 
