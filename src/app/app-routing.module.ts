@@ -31,6 +31,7 @@ import { ListarTorneoBasquetbolComponent } from './componentes/listar-torneo-bas
 import { ListarTorneoComponent } from './componentes/listar-torneo/listar-torneo.component';
 import { ListarUsuariosComponent } from './componentes/listar-usuarios/listar-usuarios.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { TablaClasificacionComponent } from './componentes/tabla-clasificacion/tabla-clasificacion.component';
 
 const routes: Routes = [
   {path:'',pathMatch:'full',redirectTo:'home'},
@@ -64,7 +65,8 @@ const routes: Routes = [
   {path:'editar-usuario/:id',component:EditarUsuarioComponent},
   {path:'listar-usuarios',component:ListarUsuariosComponent},
   {path:'home',component:HomeComponent},
-  {path:'graficas-futbol',component:GraficasFutbolComponent}
+  {path:'graficas-futbol',component:GraficasFutbolComponent},
+  {path:'tabla-clasificacion',component:TablaClasificacionComponent}
   
 
 

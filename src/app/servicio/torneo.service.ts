@@ -81,6 +81,10 @@ export class TorneoService {
     return this.clientHttp.get(this.API+"?partidos_basquetbol_equipo="+equipo);
   }
 
+  ObtenerTablaClasificacion():Observable<any>{
+    return this.clientHttp.get(this.API+"?tablaClasificacion=");
+  }
+
   BorrarTorneo(id:any):Observable<any>{
     return this.clientHttp.get(this.API+"?borrar="+id);
 

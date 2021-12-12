@@ -1,0 +1,46 @@
+<div class="card">
+    <div class="card-header">        
+        
+    </div>
+    <div class="card-body">
+        <h1>Tabla de clasificacion</h1>
+        
+       <table class="table">
+           <thead>
+               <tr>
+                   <th>Posicion</th>
+                   <th>Equipo</th>
+                   <th>PJ</th>
+                   <th>G</th>
+                   <th>E</th>
+                   <th>P</th>
+                   <th>GF</th>                   
+                   <th>GC</th> 
+                   <th>Pts</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr *ngFor="let equipo of Equipos; let iControl=index">
+                <td >{{1}}</td>
+                   <td >{{equipo.equipo}}</td>
+                   <td>{{equipo.partidos_jugados}}</td>
+                   <td>{{equipo.ganados}}</td>
+                   <td>{{equipo.empates}}</td>
+                   <td>{{equipo.perdidos}}</td>
+                   <td>{{equipo.goles_favor}}</td>
+                   <td>{{equipo.goles_contra}}</td>
+                   <td>{{equipo.puntos}}</td>
+                   
+                   <!-- <td><a class="btn btn-primary" routerLink="/editar-partido-futbol/{{partido.id_partido}}" >Editar</a>  |
+                    
+                    <a class="btn btn-danger" (click)="borrarRegistro(partido.id_partido,iControl)" role="button">Eliminar</a>
+                    
+                    </td> -->
+               </tr>              
+           </tbody>
+       </table>
+       
+    </div>
+    
+</div>
+

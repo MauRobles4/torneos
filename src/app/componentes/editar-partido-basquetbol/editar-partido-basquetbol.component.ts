@@ -34,7 +34,9 @@ export class EditarPartidoBasquetbolComponent implements OnInit {
         horario:respuesta[0]['horario'],
         estadio:respuesta[0]['estadio'],
         lugar:respuesta[0]['lugar'],
-        torneo:respuesta[0]['torneo']
+        torneo:respuesta[0]['torneo'],
+        puntos_local:respuesta[0]['puntos_local'],
+        puntos_visitante:respuesta[0]['puntos_visitante']
       });
       
 
@@ -46,7 +48,9 @@ export class EditarPartidoBasquetbolComponent implements OnInit {
         horario:[''],
         estadio:[''],
         lugar:[''],
-        torneo:['']
+        torneo:[''],
+        puntos_local:[0],
+        puntos_visitante:[0]
     });
 
   }

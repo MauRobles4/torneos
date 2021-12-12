@@ -36,7 +36,9 @@ export class EditarPartidoFutbolComponent implements OnInit {
         horario:respuesta[0]['horario'],
         estadio:respuesta[0]['estadio'],
         lugar:respuesta[0]['lugar'],
-        torneo:respuesta[0]['torneo']
+        torneo:respuesta[0]['torneo'],
+        goles_local:respuesta[0]['goles_local'],
+        goles_visitante:respuesta[0]['goles_visitante']
       });
 
     });
@@ -48,7 +50,9 @@ export class EditarPartidoFutbolComponent implements OnInit {
         horario:[''],
         estadio:[''],
         lugar:[''],
-        torneo:['']
+        torneo:[''],
+        goles_local:[0],
+        goles_visitante:[0]
     });
 
 

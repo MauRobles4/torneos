@@ -29,7 +29,9 @@ export class EditarUsuarioComponent implements OnInit {
       this.formularioDeUsuario.setValue({
         nombre:respuesta[0]['nombre'],
         correo:respuesta[0]['correo'],
-        contrasena:respuesta[0]['contrasena'],        
+        contrasena:respuesta[0]['contrasena'],
+        tipo:respuesta[0]['tipo'],
+
         
       });
 
@@ -38,7 +40,8 @@ export class EditarUsuarioComponent implements OnInit {
     this.formularioDeUsuario=this.formulario.group({
       nombre:[''],
       correo:[''],
-      contrasena:['']
+      contrasena:[''],
+      tipo:['']
       
     });
 

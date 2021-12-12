@@ -46,6 +46,17 @@
         </select>
       </div>
 
+      <div class="mb-3">
+        <label for="" class="form-label">Marcador</label><br>
+        <label for="" class="form-label">Puntos del local</label>
+        <input type="number" class="form-control" name="" min="0" formControlName="puntos_local" id="" aria-describedby="helpId"
+          placeholder="Puntos local">
+          <label for="" class="form-label">Puntos del visitante</label>
+        <input type="number" class="form-control" name="" min="0" formControlName="puntos_visitante" id="" aria-describedby="helpId"
+          placeholder="Puntos visitante">
+
+      </div>
+
       <div class="btn-group" role="group" aria-label="">
         <button type="submit" class="btn btn-success">Editar</button>
         <button type="button" routerLink="/listar-partido-basquetbol/" class="btn btn-primary">Cancelar</button>
