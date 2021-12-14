@@ -13,7 +13,7 @@ export class AgregarPartidoBasquetbolTorneoComponent implements OnInit {
 
   Torneos:any;
   torneo:any;
-
+  usuario='';
   Equipos:any;
 
   constructor(
@@ -22,6 +22,7 @@ export class AgregarPartidoBasquetbolTorneoComponent implements OnInit {
     private ruteador:Router,
     private activateRoute:ActivatedRoute,
   ) { 
+    this.usuario='false';
     this.torneo=this.activateRoute.snapshot.paramMap.get('torneo');
     console.log("Este el torneo del que se toman los equipos "+this.torneo);
  

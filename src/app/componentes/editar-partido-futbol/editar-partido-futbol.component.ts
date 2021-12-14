@@ -14,6 +14,7 @@ export class EditarPartidoFutbolComponent implements OnInit {
   formularioDePartido:FormGroup;
   elID:any;
   Torneos:any;
+  usuario='';
   
 
   Equipos:any;
@@ -24,6 +25,7 @@ export class EditarPartidoFutbolComponent implements OnInit {
     private ruteador:Router
 
   ) {
+    this.usuario='false';
     this.elID=this.activateRoute.snapshot.paramMap.get('id');
     console.log("Este es el id del editar "+this.elID);
 

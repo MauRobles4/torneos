@@ -12,7 +12,7 @@ export class ListarPartidosTorneoBasquetbolComponent implements OnInit {
   Partidos:any;
   torneo:any;
   filterPost = ''; 
-
+  usuario='';
   page_size: number = 10;
   page_number: number = 1;
   pageSizeOptions = [5, 10, 20, 50, 100];
@@ -21,6 +21,7 @@ export class ListarPartidosTorneoBasquetbolComponent implements OnInit {
     private activateRoute:ActivatedRoute,
     private torneoService:TorneoService
   ) { 
+    this.usuario='false';
     this.torneo=this.activateRoute.snapshot.paramMap.get('torneo');
     console.log("Este el torneo del que se toman los partidos "+this.torneo);
 

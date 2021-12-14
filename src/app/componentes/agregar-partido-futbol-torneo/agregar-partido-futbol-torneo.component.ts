@@ -13,7 +13,7 @@ export class AgregarPartidoFutbolTorneoComponent implements OnInit {
 
   Torneos:any;
   torneo:any;
-
+  usuario='';
   Equipos:any;
 
   constructor(public formulario:FormBuilder,
@@ -22,6 +22,7 @@ export class AgregarPartidoFutbolTorneoComponent implements OnInit {
     private activateRoute:ActivatedRoute,
 
   ) {
+    this.usuario='false';
     this.torneo=this.activateRoute.snapshot.paramMap.get('torneo');
     console.log("Este el torneo del que se toman los equipos "+this.torneo);
  

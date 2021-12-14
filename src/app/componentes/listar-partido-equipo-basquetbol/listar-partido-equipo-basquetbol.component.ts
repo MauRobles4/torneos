@@ -11,6 +11,7 @@ import { PageEvent } from '@angular/material/paginator';
 export class ListarPartidoEquipoBasquetbolComponent implements OnInit {
   Partidos:any;
   equipo:any;
+  usuario='';
   filterPost = ''; 
   page_size: number = 10;
   page_number: number = 1;
@@ -22,6 +23,7 @@ export class ListarPartidoEquipoBasquetbolComponent implements OnInit {
     private torneoService:TorneoService
 
   ) {
+    this.usuario='false';
     this.equipo=this.activateRoute.snapshot.paramMap.get('equipo');
     console.log("Este el torneo del que se toman los partidos "+this.equipo);
 

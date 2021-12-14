@@ -19,6 +19,7 @@ export class GraficasFutbolComponent implements OnInit {
   Equipos:any;
   equipo1:any;
   equipo2:any;
+  usuario='';
   // public barChartOptions: ChartOptions = {
   //   responsive: true,
   //   // We use these empty structures as placeholders for dynamic theming.
@@ -97,6 +98,7 @@ export class GraficasFutbolComponent implements OnInit {
 
 
   constructor(protected torneoService: TorneoService) {
+    this.usuario='false';
     // this.getEquipos();
   }
 

@@ -10,12 +10,14 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class TablaClasificacionComponent implements OnInit {
   Equipos: any;
-
+  usuario='';
   constructor(
     private activateRoute: ActivatedRoute,
     private torneoService: TorneoService
 
-  ) { }
+  ) { 
+    this.usuario='false';
+  }
 
   ngOnInit(): void {
     this.torneoService.ObtenerTablaClasificacion().subscribe(respuesta => {

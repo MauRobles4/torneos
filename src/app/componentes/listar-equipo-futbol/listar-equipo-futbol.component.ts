@@ -11,6 +11,7 @@ export class ListarEquipoFutbolComponent implements OnInit {
 
   Equipos:any;
   filterPost = ''; 
+  usuario='';
 
   page_size: number = 10;
   page_number: number = 1;
@@ -18,7 +19,9 @@ export class ListarEquipoFutbolComponent implements OnInit {
 
   constructor(
     private torneoService:TorneoService
-  ) { }
+  ) { 
+    this.usuario='false';
+  }
 
   ngOnInit(): void {
     this.torneoService.ObtenerEquiposFutbol().subscribe(respuesta=>{

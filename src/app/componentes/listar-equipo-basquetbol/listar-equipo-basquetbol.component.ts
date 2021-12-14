@@ -12,7 +12,7 @@ export class ListarEquipoBasquetbolComponent implements OnInit {
 
   Equipos: any;
   filterPost = '';
-
+  usuario='';
   page_size: number = 10;
   page_number: number = 1;
   pageSizeOptions = [5, 10, 20, 50, 100];
@@ -21,7 +21,9 @@ export class ListarEquipoBasquetbolComponent implements OnInit {
   constructor(
     private torneoService: TorneoService
 
-  ) { }
+  ) {
+    this.usuario='false';
+   }
 
 
   ngOnInit(): void {

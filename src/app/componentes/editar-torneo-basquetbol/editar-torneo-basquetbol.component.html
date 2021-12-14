@@ -1,3 +1,116 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="nav navbar-nav">
+      <img src="./assets/fut_basquet.jpg">     
+      <a  class="nav-item nav-link active" href="#">Torneos <span class="visually-hidden">(current)</span></a>
+      <a class="nav-item nav-link" routerLink="/home">Home</a>
+  
+  
+      <ul class="nav nav-pills">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-expanded="false">
+            Torneos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a *ngIf="usuario=='false'" class="dropdown-item" routerLink="/agregar-torneo">Agregar torneo</a></li>
+            <li><a class="dropdown-item" routerLink="/listar-torneo">Ver torneos de futbol</a></li>
+            <li>
+              <!-- <hr class="dropdown-divider"> -->
+            </li>
+            <li><a class="dropdown-item" routerLink="/listar-torneo-basquetbol">Ver torneos de basquetbol</a></li>
+          </ul>
+        </li>
+      </ul>
+  
+      <!-- <div class="container">
+        
+        <ul class="nav nav-pills">
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Opcones de torneo 2</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+            </li>          
+        </ul>
+      </div> -->
+  
+      <ul class="nav nav-pills">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-expanded="false">
+            Futbol
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a *ngIf="usuario=='false'" class="dropdown-item" routerLink="/agregar-equipo">Agregar equipo</a></li>
+            <li><a class="dropdown-item" routerLink="/listar-equipo-futbol">Ver equipos de futbol</a></li>
+            <!-- <li><a class="dropdown-item" routerLink="agregar-partido-futbol">Agregar partido de futbol</a></li> -->
+            <li><a class="dropdown-item" routerLink="/listar-partido-futbol">Ver partidos de futbol</a></li>
+            <li>
+              <!-- <hr class="dropdown-divider"> -->
+            </li>
+          </ul>
+        </li>
+      </ul>
+  
+      <ul class="nav nav-pills">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-expanded="false">
+            Basquetbol
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a  *ngIf="usuario=='false'" class="dropdown-item" routerLink="/agregar-equipo-basquetbol">Agregar equipo</a></li>
+            <li><a class="dropdown-item" routerLink="/listar-equipo-basquetbol">Ver equipos de basquetbol</a></li>
+            <!-- <li><a class="dropdown-item" routerLink="agregar-partido-basquetbol">Agregar partido de basquetbol</a></li> -->
+            <li><a class="dropdown-item" routerLink="/listar-partido-basquetbol">Ver partidos de basquetbol</a></li>
+            <li>
+              <!-- <hr class="dropdown-divider"> -->
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul *ngIf="usuario=='false'" class="nav nav-pills">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-expanded="false">
+            Estadisticas
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/graficas-futbol">Equipos de futbol con mas partidos jugados</a></li>
+            <li><a class="dropdown-item" routerLink="/listar-equipo-basquetbol">Equipos de futbol con menos partidos jugados</a></li>
+            <li><a class="dropdown-item" routerLink="/listar-equipo-basquetbol">Equipos de basquetbol con mas partidos jugados</a></li>
+            <li><a class="dropdown-item" routerLink="/listar-equipo-basquetbol">Equipos de basquetbol con menos partidos jugados</a></li>
+            <!-- <li><a class="dropdown-item" routerLink="agregar-partido-basquetbol">Agregar partido de basquetbol</a></li> -->
+            <li><a class="dropdown-item" routerLink="/listar-partido-basquetbol">Ver partidos de basquetbol</a></li>
+            <li>
+              <!-- <hr class="dropdown-divider"> -->
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <a *ngIf="usuario=='false'" class="nav-item nav-link" routerLink="/listar-usuarios">Ver usuarios</a>
+  
+      <button class="btn-dark text-light btnSesion" routerLink="/login" > Cerrar sesion</button>
+  
+      <!-- <a class="nav-item nav-link" routerLink="agregar-torneo">Agregar torneo</a>
+      <a class="nav-item nav-link" routerLink="listar-torneo">Ver torneos de futbol</a>
+      <a class="nav-item nav-link" routerLink="listar-torneo-basquetbol">Ver torneos de basquetbol</a> -->
+      <!-- <a class="nav-item nav-link" routerLink="agregar-equipo">Agregar equipo de futbol</a> -->
+      <!-- <a class="nav-item nav-link" routerLink="agregar-equipo-basquetbol">Agregar equipo de basquetbol</a> -->
+      <!-- <a class="nav-item nav-link" routerLink="listar-equipo-futbol">Ver equipos de futbol</a> -->
+      <!-- <a class="nav-item nav-link" routerLink="listar-equipo-basquetbol">Ver equipos de basquetbol</a> -->
+      <!-- <a class="nav-item nav-link" routerLink="agregar-partido-futbol">Agregar partido de futbol</a> -->
+      <!-- <a class="nav-item nav-link" routerLink="listar-partido-futbol">Ver partidos de futbol</a> -->
+      <!-- <a class="nav-item nav-link" routerLink="agregar-partido-basquetbol">Agregar partido de basquetbol</a> -->
+      <!-- <a class="nav-item nav-link" routerLink="listar-partido-basquetbol">Ver partidos de basquetbol</a> -->
+    </div>
+  </nav>
+  <br>
 <div class="card col-5">
     <div class="card-header">
         Editar torneo de basquetbol

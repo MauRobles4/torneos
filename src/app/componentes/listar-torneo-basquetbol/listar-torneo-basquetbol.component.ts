@@ -10,7 +10,7 @@ import { TorneoService } from 'src/app/servicio/torneo.service';
 export class ListarTorneoBasquetbolComponent implements OnInit {
   Torneos:any;
   filterPost = ''; 
-
+  usuario='';
   page_size: number = 10;
   page_number: number = 1;
   pageSizeOptions = [5, 10, 20, 50, 100];
@@ -18,7 +18,9 @@ export class ListarTorneoBasquetbolComponent implements OnInit {
   constructor(
     private torneoService:TorneoService
 
-  ) { }
+  ) {
+    this.usuario='false';
+   }
 
   ngOnInit(): void {
     this.torneoService.ObtenerTorneosBasquetbol().subscribe(respuesta=>{

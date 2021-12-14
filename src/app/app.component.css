@@ -1,6 +1,11 @@
 .container{
+    width: 100%;
     /* background-color: lightgray; */
 }
 .btnSesion{
     margin-left: 600px;
+}
+
+img{
+    width: 50px;
 }

@@ -34,7 +34,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { TablaClasificacionComponent } from './componentes/tabla-clasificacion/tabla-clasificacion.component';
 
 const routes: Routes = [
-  {path:'',pathMatch:'full',redirectTo:'home'},
+  {path:'',pathMatch:'full',redirectTo:'login'},
   {path:'agregar-torneo',component:AgregarTorneoComponent},
   {path:'listar-torneo',component:ListarTorneoComponent},
   {path:'listar-torneo-basquetbol',component:ListarTorneoBasquetbolComponent},  

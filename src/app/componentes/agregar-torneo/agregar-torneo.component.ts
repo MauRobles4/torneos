@@ -11,11 +11,13 @@ import { Router } from '@angular/router';
 export class AgregarTorneoComponent implements OnInit {
 
   formularioDeTorneo:FormGroup;
+  usuario='';
 
   constructor(public formulario:FormBuilder,
     private torneoService:TorneoService,
     private ruteador:Router
     ) { 
+      this.usuario='false';
     this.formularioDeTorneo=this.formulario.group({
       nombre:[''],
       pais:[''],

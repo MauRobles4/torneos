@@ -12,7 +12,7 @@ export class ListarEquiposTorneoBasquetbolComponent implements OnInit {
   Equipos:any;
   torneo:any;
   filterPost = ''; 
-
+  usuario='';
   page_size: number = 10;
   page_number: number = 1;
   pageSizeOptions = [5, 10, 20, 50, 100];
@@ -22,6 +22,7 @@ export class ListarEquiposTorneoBasquetbolComponent implements OnInit {
     private activateRoute:ActivatedRoute,
 
   ) {
+    this.usuario='false';
     this.torneo=this.activateRoute.snapshot.paramMap.get('torneo');
     console.log("Este el torneo del que se toman los equipos "+this.torneo);
 

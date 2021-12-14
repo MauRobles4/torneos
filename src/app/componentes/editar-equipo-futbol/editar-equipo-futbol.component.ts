@@ -15,6 +15,7 @@ export class EditarEquipoFutbolComponent implements OnInit {
   formularioDeEquipo:FormGroup;
   elID:any;
   Torneos:any;
+  usuario='';
 
   constructor(
     public formulario:FormBuilder,
@@ -22,6 +23,7 @@ export class EditarEquipoFutbolComponent implements OnInit {
     private torneoService:TorneoService,
     private ruteador:Router
   ) {
+    this.usuario='false';
     this.elID=this.activateRoute.snapshot.paramMap.get('id');
     console.log("Este es el id del editar "+this.elID);
 

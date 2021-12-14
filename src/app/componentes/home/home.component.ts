@@ -8,6 +8,7 @@ import { TorneoService } from 'src/app/servicio/torneo.service';
 })
 export class HomeComponent implements OnInit {
   Partidos:any;
+  usuario='';
   Partidos2:any;
   fecha_final:any;
   today = new Date();
@@ -23,7 +24,9 @@ export class HomeComponent implements OnInit {
   constructor(
     private torneoService:TorneoService
 
-  ) { }
+  ) { 
+    this.usuario='false';
+  }
 
   ngOnInit(): void {
     this.torneoService.ObtenerFechaFinal().subscribe(respuesta=>{

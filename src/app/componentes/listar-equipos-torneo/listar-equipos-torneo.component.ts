@@ -12,6 +12,7 @@ export class ListarEquiposTorneoComponent implements OnInit {
   Equipos:any;
   torneo:any;
   filterPost = ''; 
+  usuario='';
 
   page_size: number = 10;
   page_number: number = 1;
@@ -24,6 +25,7 @@ export class ListarEquiposTorneoComponent implements OnInit {
 
 
   ) {
+    this.usuario='false';
     this.torneo=this.activateRoute.snapshot.paramMap.get('torneo');
     console.log("Este el torneo del que se toman los equipos "+this.torneo);
 

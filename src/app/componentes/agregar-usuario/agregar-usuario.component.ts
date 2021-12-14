@@ -19,7 +19,7 @@ export class AgregarUsuarioComponent implements OnInit {
       nombre: [''],
       correo: [''],
       contrasena: [''],
-      tipo_usuario: ['']
+      tipo_usuario: ['Usuario']
     });
   }
 

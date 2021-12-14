@@ -12,6 +12,7 @@ export class AgregarEquipoComponent implements OnInit {
 
   formularioDeEquipo:FormGroup;
   Torneos:any;
+  usuario='';
 
 
   constructor(public formulario:FormBuilder,
@@ -19,6 +20,7 @@ export class AgregarEquipoComponent implements OnInit {
     private ruteador:Router
 
   ) { 
+    this.usuario='false';
     this.formularioDeEquipo=this.formulario.group({
       nombre:[''],
       pais:[''],      
