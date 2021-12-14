@@ -100,7 +100,7 @@
     </div>
   </nav>
   <br>
-  
+
 <mat-paginator [length]="Partidos.length"
                [pageSize]="page_size"
                [pageSizeOptions]="pageSizeOptions"
@@ -125,16 +125,18 @@
                    <th>Estadio</th>
                    <th>Lugar</th>
                    <th>Torneo</th>
+                   
                </tr>
            </thead>
            <tbody>
                <tr *ngFor="let partido of Partidos | filterPartido:filterPost | paginate:page_size:page_number; let iControl=index">
                    <td >{{partido.id_partido}}</td>
-                   <td>{{partido.equipo1}} VS {{partido.equipo2}}</td>
+                   <td>{{partido.equipo1}} VS {{partido.equipo2}} <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{partido.puntos_local}} ---------- {{partido.puntos_visitante}}</td>
                    <td>{{partido.horario}}</td>
                    <td>{{partido.estadio}}</td>
                    <td>{{partido.lugar}}</td>
                    <td>{{partido.torneo}}</td>
+                   
                    <td><a class="btn btn-primary" routerLink="/editar-partido-basquetbol/{{partido.id_partido}}" >Editar</a>  |
                     
                     <a class="btn btn-danger" (click)="borrarRegistro(partido.id_partido,iControl)" role="button">Eliminar</a> 
