@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { TorneoService } from 'src/app/servicio/torneo.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-listar-torneo-basquetbol',
@@ -8,43 +9,46 @@ import { TorneoService } from 'src/app/servicio/torneo.service';
   styleUrls: ['./listar-torneo-basquetbol.component.css']
 })
 export class ListarTorneoBasquetbolComponent implements OnInit {
-  Torneos:any;
-  filterPost = ''; 
-  usuario='';
+  Torneos: any;
+  filterPost = '';
+  nomUsuario = '';
+  usuario = '';
   page_size: number = 10;
   page_number: number = 1;
   pageSizeOptions = [5, 10, 20, 50, 100];
 
   constructor(
-    private torneoService:TorneoService
+    private torneoService: TorneoService,
+    private cookieService:CookieService
 
   ) {
-    this.usuario='false';
-   }
+    this.nomUsuario=cookieService.get("nombreUsuario");
+    this.usuario=cookieService.get("tipoUsuario");
+  }
 
   ngOnInit(): void {
-    this.torneoService.ObtenerTorneosBasquetbol().subscribe(respuesta=>{
+    this.torneoService.ObtenerTorneosBasquetbol().subscribe(respuesta => {
       console.log(respuesta);
-      this.Torneos=respuesta;
+      this.Torneos = respuesta;
     });
   }
 
-  
- handlePage(e: PageEvent) {
-  this.page_size = e.pageSize;
-  this.page_number = e.pageIndex + 1;
-}
 
-  borrarRegistro(id:any,iControl:any){
+  handlePage(e: PageEvent) {
+    this.page_size = e.pageSize;
+    this.page_number = e.pageIndex + 1;
+  }
+
+  borrarRegistro(id: any, iControl: any) {
     console.log(id);
     console.log(iControl);
-    if(window.confirm("Desea borrar este torneo?")){
+    if (window.confirm("Desea borrar este torneo?")) {
 
-      this.torneoService.BorrarTorneoBasquetbol(id).subscribe((respuesta)=>{
-                this.Torneos.splice(iControl,1);
+      this.torneoService.BorrarTorneoBasquetbol(id).subscribe((respuesta) => {
+        this.Torneos.splice(iControl, 1);
       });
     }
-      
+
   }
 
 

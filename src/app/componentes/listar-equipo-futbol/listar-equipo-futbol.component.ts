@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { TorneoService } from 'src/app/servicio/torneo.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-listar-equipo-futbol',
@@ -9,24 +10,27 @@ import { TorneoService } from 'src/app/servicio/torneo.service';
 })
 export class ListarEquipoFutbolComponent implements OnInit {
 
-  Equipos:any;
-  filterPost = ''; 
-  usuario='';
+  Equipos: any;
+  filterPost = '';
+  nomUsuario = '';
+  usuario = '';
 
   page_size: number = 10;
   page_number: number = 1;
   pageSizeOptions = [5, 10, 20, 50, 100];
 
   constructor(
-    private torneoService:TorneoService
-  ) { 
-    this.usuario='false';
+    private torneoService: TorneoService,
+    private cookieService:CookieService
+  ) {
+    this.nomUsuario=cookieService.get("nombreUsuario");
+    this.usuario=cookieService.get("tipoUsuario");
   }
 
   ngOnInit(): void {
-    this.torneoService.ObtenerEquiposFutbol().subscribe(respuesta=>{
+    this.torneoService.ObtenerEquiposFutbol().subscribe(respuesta => {
       console.log(respuesta);
-      this.Equipos=respuesta;
+      this.Equipos = respuesta;
     });
   }
   handlePage(e: PageEvent) {
@@ -34,16 +38,16 @@ export class ListarEquipoFutbolComponent implements OnInit {
     this.page_number = e.pageIndex + 1;
   }
 
-  borrarRegistro(id:any,iControl:any){
+  borrarRegistro(id: any, iControl: any) {
     console.log(id);
     console.log(iControl);
-    if(window.confirm("Desea borrar este equipo?")){
+    if (window.confirm("Desea borrar este equipo?")) {
 
-      this.torneoService.BorrarEquipoFutbol(id).subscribe((respuesta)=>{
-                this.Equipos.splice(iControl,1);
+      this.torneoService.BorrarEquipoFutbol(id).subscribe((respuesta) => {
+        this.Equipos.splice(iControl, 1);
       });
     }
-      
+
   }
 
 }

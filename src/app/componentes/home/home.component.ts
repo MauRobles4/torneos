@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TorneoService } from 'src/app/servicio/torneo.service';
-
+import {LoginComponent} from '../login/login.component';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,7 +9,10 @@ import { TorneoService } from 'src/app/servicio/torneo.service';
 })
 export class HomeComponent implements OnInit {
   Partidos:any;
+  nomUsuario='';
   usuario='';
+  // usuario=LoginComponent.tipoUsuario;
+  
   Partidos2:any;
   fecha_final:any;
   today = new Date();
@@ -22,10 +26,15 @@ export class HomeComponent implements OnInit {
   
 
   constructor(
-    private torneoService:TorneoService
+    private torneoService:TorneoService,    
+    private cookieService:CookieService
 
   ) { 
-    this.usuario='false';
+    // this.usuario='false';
+    // this.usuario=LoginComponent.tipoUsuario2;
+    this.usuario=cookieService.get("tipoUsuario");
+    this.nomUsuario=cookieService.get("nombreUsuario");
+    console.log(this.usuario);
   }
 
   ngOnInit(): void {

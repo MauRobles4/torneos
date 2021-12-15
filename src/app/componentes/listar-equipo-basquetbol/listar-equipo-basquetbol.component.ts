@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { TorneoService } from 'src/app/servicio/torneo.service';
-
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-listar-equipo-basquetbol',
@@ -12,18 +12,22 @@ export class ListarEquipoBasquetbolComponent implements OnInit {
 
   Equipos: any;
   filterPost = '';
-  usuario='';
+  nomUsuario = '';
+  usuario = '';
   page_size: number = 10;
   page_number: number = 1;
   pageSizeOptions = [5, 10, 20, 50, 100];
 
 
   constructor(
-    private torneoService: TorneoService
+    private torneoService: TorneoService,
+    private cookieService:CookieService
+
 
   ) {
-    this.usuario='false';
-   }
+    this.nomUsuario=cookieService.get("nombreUsuario");
+    this.usuario=cookieService.get("tipoUsuario");
+  }
 
 
   ngOnInit(): void {

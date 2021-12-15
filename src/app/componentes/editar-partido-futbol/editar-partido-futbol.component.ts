@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder } from '@angular/forms';
 import { TorneoService } from 'src/app/servicio/torneo.service';
-
+import { CookieService } from 'ngx-cookie-service';
 
 import {Router,ActivatedRoute} from '@angular/router';
 
@@ -14,6 +14,7 @@ export class EditarPartidoFutbolComponent implements OnInit {
   formularioDePartido:FormGroup;
   elID:any;
   Torneos:any;
+  nomUsuario='';
   usuario='';
   
 
@@ -22,10 +23,12 @@ export class EditarPartidoFutbolComponent implements OnInit {
     public formulario:FormBuilder,
     private activateRoute:ActivatedRoute,
     private torneoService:TorneoService,
-    private ruteador:Router
+    private ruteador:Router,
+    private cookieService:CookieService
 
   ) {
-    this.usuario='false';
+    this.nomUsuario=cookieService.get("nombreUsuario");
+    this.usuario=cookieService.get("tipoUsuario");
     this.elID=this.activateRoute.snapshot.paramMap.get('id');
     console.log("Este es el id del editar "+this.elID);
 

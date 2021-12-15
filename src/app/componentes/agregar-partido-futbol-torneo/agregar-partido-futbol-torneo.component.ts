@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TorneoService } from 'src/app/servicio/torneo.service';
 import { FormGroup,FormBuilder } from '@angular/forms';
 import { Router,ActivatedRoute } from '@angular/router';
-
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-agregar-partido-futbol-torneo',
   templateUrl: './agregar-partido-futbol-torneo.component.html',
@@ -13,6 +13,7 @@ export class AgregarPartidoFutbolTorneoComponent implements OnInit {
 
   Torneos:any;
   torneo:any;
+  nomUsuario='';
   usuario='';
   Equipos:any;
 
@@ -20,9 +21,12 @@ export class AgregarPartidoFutbolTorneoComponent implements OnInit {
     private torneoService:TorneoService,
     private ruteador:Router,
     private activateRoute:ActivatedRoute,
+    private cookieService:CookieService
 
   ) {
-    this.usuario='false';
+    this.nomUsuario=cookieService.get("nombreUsuario");
+    this.usuario=cookieService.get("tipoUsuario");
+
     this.torneo=this.activateRoute.snapshot.paramMap.get('torneo');
     console.log("Este el torneo del que se toman los equipos "+this.torneo);
  

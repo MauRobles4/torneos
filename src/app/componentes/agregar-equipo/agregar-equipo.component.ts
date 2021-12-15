@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder } from '@angular/forms';
 import { TorneoService } from 'src/app/servicio/torneo.service';
 import { Router } from '@angular/router';
-
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-agregar-equipo',
   templateUrl: './agregar-equipo.component.html',
@@ -12,15 +12,18 @@ export class AgregarEquipoComponent implements OnInit {
 
   formularioDeEquipo:FormGroup;
   Torneos:any;
+  nomUsuario='';
   usuario='';
 
 
   constructor(public formulario:FormBuilder,
     private torneoService:TorneoService,
-    private ruteador:Router
+    private ruteador:Router,
+    private cookieService:CookieService
 
   ) { 
-    this.usuario='false';
+    this.nomUsuario=cookieService.get("nombreUsuario");
+    this.usuario=cookieService.get("tipoUsuario");
     this.formularioDeEquipo=this.formulario.group({
       nombre:[''],
       pais:[''],      

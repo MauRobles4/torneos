@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TorneoService } from 'src/app/servicio/torneo.service';
 import {Router,ActivatedRoute} from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-listar-partido-equipo-basquetbol',
@@ -11,6 +12,7 @@ import { PageEvent } from '@angular/material/paginator';
 export class ListarPartidoEquipoBasquetbolComponent implements OnInit {
   Partidos:any;
   equipo:any;
+  nomUsuario='';
   usuario='';
   filterPost = ''; 
   page_size: number = 10;
@@ -20,10 +22,12 @@ export class ListarPartidoEquipoBasquetbolComponent implements OnInit {
   
   constructor(
     private activateRoute:ActivatedRoute,
-    private torneoService:TorneoService
+    private torneoService:TorneoService,
+    private cookieService:CookieService
 
   ) {
-    this.usuario='false';
+    this.nomUsuario=cookieService.get("nombreUsuario");
+    this.usuario=cookieService.get("tipoUsuario");
     this.equipo=this.activateRoute.snapshot.paramMap.get('equipo');
     console.log("Este el torneo del que se toman los partidos "+this.equipo);
 

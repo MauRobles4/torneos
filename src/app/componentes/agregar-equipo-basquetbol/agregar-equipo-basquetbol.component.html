@@ -12,7 +12,7 @@
           Torneos
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a *ngIf="usuario=='false'" class="dropdown-item" routerLink="/agregar-torneo">Agregar torneo</a></li>
+          <li><a *ngIf="usuario=='Administrador'" class="dropdown-item" routerLink="/agregar-torneo">Agregar torneo</a></li>
           <li><a class="dropdown-item" routerLink="/listar-torneo">Ver torneos de futbol</a></li>
           <li>
             <!-- <hr class="dropdown-divider"> -->
@@ -46,7 +46,7 @@
           Futbol
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a *ngIf="usuario=='false'" class="dropdown-item" routerLink="/agregar-equipo">Agregar equipo</a></li>
+          <li><a *ngIf="usuario=='Administrador'" class="dropdown-item" routerLink="/agregar-equipo">Agregar equipo</a></li>
           <li><a class="dropdown-item" routerLink="/listar-equipo-futbol">Ver equipos de futbol</a></li>
           <!-- <li><a class="dropdown-item" routerLink="agregar-partido-futbol">Agregar partido de futbol</a></li> -->
           <li><a class="dropdown-item" routerLink="/listar-partido-futbol">Ver partidos de futbol</a></li>
@@ -64,7 +64,7 @@
           Basquetbol
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a  *ngIf="usuario=='false'" class="dropdown-item" routerLink="/agregar-equipo-basquetbol">Agregar equipo</a></li>
+          <li><a  *ngIf="usuario=='Administrador'" class="dropdown-item" routerLink="/agregar-equipo-basquetbol">Agregar equipo</a></li>
           <li><a class="dropdown-item" routerLink="/listar-equipo-basquetbol">Ver equipos de basquetbol</a></li>
           <!-- <li><a class="dropdown-item" routerLink="agregar-partido-basquetbol">Agregar partido de basquetbol</a></li> -->
           <li><a class="dropdown-item" routerLink="/listar-partido-basquetbol">Ver partidos de basquetbol</a></li>
@@ -74,7 +74,7 @@
         </ul>
       </li>
     </ul>
-    <ul *ngIf="usuario=='false'" class="nav nav-pills">
+    <ul *ngIf="usuario=='Administrado'" class="nav nav-pills">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-expanded="false">
@@ -93,9 +93,9 @@
         </ul>
       </li>
     </ul>
-    <a *ngIf="usuario=='false'" class="nav-item nav-link" routerLink="/listar-usuarios">Ver usuarios</a>
-
-    <button class="btn-dark text-light btnSesion" routerLink="/login" > Cerrar sesion</button>
+    <a *ngIf="usuario=='Administrador'" class="nav-item nav-link" routerLink="/listar-usuarios">Ver usuarios</a>
+    
+    <button class="btn-dark text-light btnSesion" routerLink="/login" >{{this.nomUsuario}} Cerrar sesion</button>
 
     <!-- <a class="nav-item nav-link" routerLink="agregar-torneo">Agregar torneo</a>
     <a class="nav-item nav-link" routerLink="listar-torneo">Ver torneos de futbol</a>
