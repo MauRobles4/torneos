@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { TorneoService } from 'src/app/servicio/torneo.service';
 import { CookieService } from 'ngx-cookie-service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-listar-equipo-futbol',
   templateUrl: './listar-equipo-futbol.component.html',
@@ -21,8 +21,18 @@ export class ListarEquipoFutbolComponent implements OnInit {
 
   constructor(
     private torneoService: TorneoService,
-    private cookieService:CookieService
+    private cookieService:CookieService,
+     private ruteador:Router
   ) {
+    if(cookieService.get("nombreUsuario")==""){
+      this.ruteador.navigateByUrl('/login');
+      return
+    }
+    else if(cookieService.get("tipoUsuario")=="Usuario"){
+      this.ruteador.navigateByUrl('/home');
+      return
+
+    }
     this.nomUsuario=cookieService.get("nombreUsuario");
     this.usuario=cookieService.get("tipoUsuario");
   }
@@ -45,9 +55,17 @@ export class ListarEquipoFutbolComponent implements OnInit {
 
       this.torneoService.BorrarEquipoFutbol(id).subscribe((respuesta) => {
         this.Equipos.splice(iControl, 1);
+        
       });
     }
 
+  }
+
+    cerrarSesion(){
+    // this.cookies.delete("token");
+    this.cookieService.delete("nombreUsuario");
+    this.cookieService.delete("tipoUsuario");
+    this.ruteador.navigateByUrl('/login');
   }
 
 }

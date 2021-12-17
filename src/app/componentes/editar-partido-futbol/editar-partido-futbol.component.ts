@@ -60,6 +60,16 @@ export class EditarPartidoFutbolComponent implements OnInit {
         goles_visitante:[0]
     });
 
+    if(cookieService.get("nombreUsuario")==""){
+      this.ruteador.navigateByUrl('/login');
+      return
+    }
+    else if(cookieService.get("tipoUsuario")=="Usuario"){
+      this.ruteador.navigateByUrl('/home');
+      return
+
+    }
+
 
    }
 
@@ -79,8 +89,16 @@ export class EditarPartidoFutbolComponent implements OnInit {
     console.log(this.elID);
     console.log(this.formularioDePartido.value);
     this.torneoService.EditarPartidoFutbol(this.elID,this.formularioDePartido.value).subscribe(()=>{
+      alert("Partido editado exitosamente");
       this.ruteador.navigateByUrl('/listar-partido-futbol');
     });
+  }
+
+    cerrarSesion(){
+    // this.cookies.delete("token");
+    this.cookieService.delete("nombreUsuario");
+    this.cookieService.delete("tipoUsuario");
+    this.ruteador.navigateByUrl('/login');
   }
 
 }

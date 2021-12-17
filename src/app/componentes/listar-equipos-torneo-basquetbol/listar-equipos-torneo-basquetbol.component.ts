@@ -21,9 +21,19 @@ export class ListarEquiposTorneoBasquetbolComponent implements OnInit {
   constructor(
     private torneoService:TorneoService,
     private activateRoute:ActivatedRoute,    
-    private cookieService:CookieService
+    private cookieService:CookieService,
+        private ruteador:Router
 
   ) {
+    if(cookieService.get("nombreUsuario")==""){
+      this.ruteador.navigateByUrl('/login');
+      return
+    }
+    else if(cookieService.get("tipoUsuario")=="Usuario"){
+      this.ruteador.navigateByUrl('/home');
+      return
+
+    }
     this.nomUsuario=cookieService.get("nombreUsuario");
     this.usuario=cookieService.get("tipoUsuario");
     this.torneo=this.activateRoute.snapshot.paramMap.get('torneo');
@@ -53,6 +63,13 @@ export class ListarEquiposTorneoBasquetbolComponent implements OnInit {
       });
     }
       
+  }
+
+    cerrarSesion(){
+    // this.cookies.delete("token");
+    this.cookieService.delete("nombreUsuario");
+    this.cookieService.delete("tipoUsuario");
+    this.ruteador.navigateByUrl('/login');
   }
 
 }

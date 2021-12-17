@@ -59,6 +59,16 @@ export class EditarPartidoBasquetbolComponent implements OnInit {
         puntos_visitante:[0]
     });
 
+    if(cookieService.get("nombreUsuario")==""){
+      this.ruteador.navigateByUrl('/login');
+      return
+    }
+    else if(cookieService.get("tipoUsuario")=="Usuario"){
+      this.ruteador.navigateByUrl('/home');
+      return
+
+    }
+
   }
 
   ngOnInit(): void {
@@ -77,8 +87,16 @@ export class EditarPartidoBasquetbolComponent implements OnInit {
     console.log(this.elID);
     console.log(this.formularioDePartido.value);
     this.torneoService.EditarPartidoBasquetbol(this.elID,this.formularioDePartido.value).subscribe(()=>{
+      alert("Partido editado exitosamente");
       this.ruteador.navigateByUrl('/listar-partido-basquetbol');
     });
+  }
+
+    cerrarSesion(){
+    // this.cookies.delete("token");
+    this.cookieService.delete("nombreUsuario");
+    this.cookieService.delete("tipoUsuario");
+    this.ruteador.navigateByUrl('/login');
   }
 
 }

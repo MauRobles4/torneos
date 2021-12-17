@@ -39,6 +39,16 @@ export class AgregarPartidoBasquetbolTorneoComponent implements OnInit {
       lugar:[''],
       torneo:this.torneo
     }); 
+
+    if(cookieService.get("nombreUsuario")==""){
+      this.ruteador.navigateByUrl('/login');
+      return
+    }
+    else if(cookieService.get("tipoUsuario")=="Usuario"){
+      this.ruteador.navigateByUrl('/home');
+      return
+
+    }
   }
 
   ngOnInit(): void {
@@ -52,10 +62,18 @@ export class AgregarPartidoBasquetbolTorneoComponent implements OnInit {
     // console.log("Me presionaste ");
     console.log(this.formularioDePartido.value);
     this.torneoService.AgregarPartidoBasquetbol(this.formularioDePartido.value).subscribe(respuesta=>{
+    alert("Partido agregado exitosamente");
     this.ruteador.navigateByUrl('/listar-partido-basquetbol');
 
     });
 
+  }
+
+    cerrarSesion(){
+    // this.cookies.delete("token");
+    this.cookieService.delete("nombreUsuario");
+    this.cookieService.delete("tipoUsuario");
+    this.ruteador.navigateByUrl('/login');
   }
 
 }

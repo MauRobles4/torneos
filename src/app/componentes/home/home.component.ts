@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TorneoService } from 'src/app/servicio/torneo.service';
 import {LoginComponent} from '../login/login.component';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -27,11 +29,14 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private torneoService:TorneoService,    
-    private cookieService:CookieService
+    private cookieService:CookieService,
+    private ruteador:Router
 
   ) { 
-    // this.usuario='false';
-    // this.usuario=LoginComponent.tipoUsuario2;
+    if(cookieService.get("nombreUsuario")==""){
+      this.ruteador.navigateByUrl('/login');
+      return
+    }
     this.usuario=cookieService.get("tipoUsuario");
     this.nomUsuario=cookieService.get("nombreUsuario");
     console.log(this.usuario);
@@ -89,6 +94,13 @@ export class HomeComponent implements OnInit {
       });
     }
       
+  }
+
+  cerrarSesion(){
+    // this.cookies.delete("token");
+    this.cookieService.delete("nombreUsuario");
+    this.cookieService.delete("tipoUsuario");
+    this.ruteador.navigateByUrl('/login');
   }
 
 }

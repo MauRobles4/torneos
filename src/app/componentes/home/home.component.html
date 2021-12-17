@@ -95,7 +95,7 @@
     </ul>
     <a *ngIf="usuario=='Administrador'" class="nav-item nav-link" routerLink="/listar-usuarios">Ver usuarios</a>
     
-    <button class="btn-dark text-light btnSesion" routerLink="/login" >{{this.nomUsuario}} Cerrar sesion</button>
+    <button class="btn-dark text-light btnSesion" (click)="cerrarSesion()" >{{this.nomUsuario}} Cerrar sesion</button>
 
     <!-- <a class="nav-item nav-link" routerLink="agregar-torneo">Agregar torneo</a>
     <a class="nav-item nav-link" routerLink="listar-torneo">Ver torneos de futbol</a>
@@ -131,7 +131,7 @@
            <tbody>
                <tr *ngFor="let partido of Partidos; let iControl=index">
                    <td >{{partido.id_partido}}</td>
-                   <td>{{partido.equipo1}} VS {{partido.equipo2}}</td>
+                   <td>{{partido.equipo1}} - {{partido.equipo2}}</td>
                    <td>{{partido.horario}}</td>
                    <td>{{partido.estadio}}</td>
                    <td>{{partido.lugar}}</td>
@@ -170,7 +170,7 @@
            <tbody>
                <tr *ngFor="let partido of Partidos2; let iControl=index">
                    <td >{{partido.id_partido}}</td>
-                   <td>{{partido.equipo1}} VS {{partido.equipo2}}</td>
+                   <td>{{partido.equipo1}} - {{partido.equipo2}}</td>
                    <td>{{partido.horario}}</td>
                    <td>{{partido.estadio}}</td>
                    <td>{{partido.lugar}}</td>

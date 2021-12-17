@@ -49,6 +49,16 @@ export class EditarUsuarioComponent implements OnInit {
       
     });
 
+    if(cookieService.get("nombreUsuario")==""){
+      this.ruteador.navigateByUrl('/login');
+      return
+    }
+    else if(cookieService.get("tipoUsuario")=="Usuario"){
+      this.ruteador.navigateByUrl('/home');
+      return
+
+    }
+
    }
 
   ngOnInit(): void {
@@ -59,10 +69,18 @@ export class EditarUsuarioComponent implements OnInit {
     console.log(this.elID);
     console.log(this.formularioDeUsuario.value);
     this.torneoService.EditarUsuario(this.elID,this.formularioDeUsuario.value).subscribe(()=>{
+      alert("Usuario editado exitosamente");
       this.ruteador.navigateByUrl('/listar-usuarios');
     });
     
 
+  }
+
+    cerrarSesion(){
+    // this.cookies.delete("token");
+    this.cookieService.delete("nombreUsuario");
+    this.cookieService.delete("tipoUsuario");
+    this.ruteador.navigateByUrl('/login');
   }
 
 }

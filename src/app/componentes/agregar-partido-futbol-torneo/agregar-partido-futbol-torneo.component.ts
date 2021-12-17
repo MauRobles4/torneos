@@ -38,6 +38,16 @@ export class AgregarPartidoFutbolTorneoComponent implements OnInit {
       lugar:[''],
       torneo:this.torneo
     }); 
+
+    if(cookieService.get("nombreUsuario")==""){
+      this.ruteador.navigateByUrl('/login');
+      return
+    }
+    else if(cookieService.get("tipoUsuario")=="Usuario"){
+      this.ruteador.navigateByUrl('/home');
+      return
+
+    }
     
   }
 
@@ -56,10 +66,18 @@ export class AgregarPartidoFutbolTorneoComponent implements OnInit {
     // console.log("Me presionaste ");
     console.log(this.formularioDePartido.value);
     this.torneoService.AgregarPartidoFutbol(this.formularioDePartido.value).subscribe(respuesta=>{
+    alert("Partido agregado exitosamente");
     this.ruteador.navigateByUrl('/listar-partido-futbol');
 
     });
 
+  }
+
+    cerrarSesion(){
+    // this.cookies.delete("token");
+    this.cookieService.delete("nombreUsuario");
+    this.cookieService.delete("tipoUsuario");
+    this.ruteador.navigateByUrl('/login');
   }
 
 }

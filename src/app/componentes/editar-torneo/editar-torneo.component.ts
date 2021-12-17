@@ -45,6 +45,16 @@ export class EditarTorneoComponent implements OnInit {
       pais:[''],      
     });
 
+    if(cookieService.get("nombreUsuario")==""){
+      this.ruteador.navigateByUrl('/login');
+      return
+    }
+    else if(cookieService.get("tipoUsuario")=="Usuario"){
+      this.ruteador.navigateByUrl('/home');
+      return
+
+    }
+
 
   }
 
@@ -57,10 +67,19 @@ export class EditarTorneoComponent implements OnInit {
     console.log(this.elID);
     console.log(this.formularioDeTorneo.value);
     this.torneoService.EditarTorneo(this.elID,this.formularioDeTorneo.value).subscribe(()=>{
+      alert("Torneo editado exitosamente");
+
       this.ruteador.navigateByUrl('/listar-torneo');
     });
     
 
+  }
+
+    cerrarSesion(){
+    // this.cookies.delete("token");
+    this.cookieService.delete("nombreUsuario");
+    this.cookieService.delete("tipoUsuario");
+    this.ruteador.navigateByUrl('/login');
   }
 
 }

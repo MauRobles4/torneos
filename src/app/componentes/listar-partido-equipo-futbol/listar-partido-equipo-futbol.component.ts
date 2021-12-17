@@ -22,9 +22,19 @@ export class ListarPartidoEquipoFutbolComponent implements OnInit {
   constructor(
     private activateRoute: ActivatedRoute,
     private torneoService: TorneoService,
-    private cookieService:CookieService
+    private cookieService:CookieService,
+        private ruteador:Router
 
   ) {
+    if(cookieService.get("nombreUsuario")==""){
+      this.ruteador.navigateByUrl('/login');
+      return
+    }
+    else if(cookieService.get("tipoUsuario")=="Usuario"){
+      this.ruteador.navigateByUrl('/home');
+      return
+
+    }
     this.nomUsuario=cookieService.get("nombreUsuario");
     this.usuario=cookieService.get("tipoUsuario");
     this.equipo = this.activateRoute.snapshot.paramMap.get('equipo');
@@ -54,6 +64,13 @@ export class ListarPartidoEquipoFutbolComponent implements OnInit {
       });
     }
 
+  }
+
+  cerrarSesion(){
+    // this.cookies.delete("token");
+    this.cookieService.delete("nombreUsuario");
+    this.cookieService.delete("tipoUsuario");
+    this.ruteador.navigateByUrl('/login');
   }
 
 }

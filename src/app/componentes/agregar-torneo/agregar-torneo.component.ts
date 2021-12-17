@@ -27,6 +27,16 @@ export class AgregarTorneoComponent implements OnInit {
       pais: [''],
       tipo_torneo: ['']
     });
+
+    if(cookieService.get("nombreUsuario")==""){
+      this.ruteador.navigateByUrl('/login');
+      return
+    }
+    else if(cookieService.get("tipoUsuario")=="Usuario"){
+      this.ruteador.navigateByUrl('/home');
+      return
+
+    }
   }
 
   ngOnInit(): void {
@@ -42,6 +52,13 @@ export class AgregarTorneoComponent implements OnInit {
 
     });
 
+  }
+
+    cerrarSesion(){
+    // this.cookies.delete("token");
+    this.cookieService.delete("nombreUsuario");
+    this.cookieService.delete("tipoUsuario");
+    this.ruteador.navigateByUrl('/login');
   }
 
 }

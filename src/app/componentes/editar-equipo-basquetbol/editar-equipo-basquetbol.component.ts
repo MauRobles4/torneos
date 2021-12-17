@@ -47,6 +47,16 @@ export class EditarEquipoBasquetbolComponent implements OnInit {
       torneo:['']
       
     });
+
+    if(cookieService.get("nombreUsuario")==""){
+      this.ruteador.navigateByUrl('/login');
+      return
+    }
+    else if(cookieService.get("tipoUsuario")=="Usuario"){
+      this.ruteador.navigateByUrl('/home');
+      return
+
+    }
   }
 
   ngOnInit(): void {
@@ -61,10 +71,18 @@ export class EditarEquipoBasquetbolComponent implements OnInit {
     console.log(this.elID);
     console.log(this.formularioDeEquipo.value);
     this.torneoService.EditarEquipoBasquetbol(this.elID,this.formularioDeEquipo.value).subscribe(()=>{
+      alert("Equipo editado exitosamente");
       this.ruteador.navigateByUrl('/listar-equipo-basquetbol');
     });
     
 
+  }
+
+    cerrarSesion(){
+    // this.cookies.delete("token");
+    this.cookieService.delete("nombreUsuario");
+    this.cookieService.delete("tipoUsuario");
+    this.ruteador.navigateByUrl('/login');
   }
 
 }

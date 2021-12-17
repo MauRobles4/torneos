@@ -48,6 +48,17 @@ export class EditarEquipoFutbolComponent implements OnInit {
       
     });
 
+    if(cookieService.get("nombreUsuario")==""){
+      this.ruteador.navigateByUrl('/login');
+      return
+    }
+    else if(cookieService.get("tipoUsuario")=="Usuario"){
+      this.ruteador.navigateByUrl('/home');
+      return
+
+    }
+
+
    }
 
   ngOnInit(): void {
@@ -63,10 +74,18 @@ export class EditarEquipoFutbolComponent implements OnInit {
     console.log(this.elID);
     console.log(this.formularioDeEquipo.value);
     this.torneoService.EditarEquipoFutbol(this.elID,this.formularioDeEquipo.value).subscribe(()=>{
+      alert("Equipo editado exitosamente");
       this.ruteador.navigateByUrl('/listar-equipo-futbol');
     });
     
 
+  }
+
+    cerrarSesion(){
+    // this.cookies.delete("token");
+    this.cookieService.delete("nombreUsuario");
+    this.cookieService.delete("tipoUsuario");
+    this.ruteador.navigateByUrl('/login');
   }
 
   
