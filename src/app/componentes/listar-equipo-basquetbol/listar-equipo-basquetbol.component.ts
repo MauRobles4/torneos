@@ -31,11 +31,7 @@ export class ListarEquipoBasquetbolComponent implements OnInit {
       this.ruteador.navigateByUrl('/login');
       return
     }
-    else if(cookieService.get("tipoUsuario")=="Usuario"){
-      this.ruteador.navigateByUrl('/home');
-      return
-
-    }    
+    
     this.nomUsuario=cookieService.get("nombreUsuario");
     this.usuario=cookieService.get("tipoUsuario");
   }
