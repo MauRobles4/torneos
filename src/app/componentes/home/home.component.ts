@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit {
     if(window.confirm("Desea borrar este partido?")){
 
       this.torneoService.BorrarPartidoBasquetbol(id).subscribe((respuesta)=>{
-                this.Partidos.splice(iControl,1);
+                this.Partidos2.splice(iControl,1);
       });
     }
       

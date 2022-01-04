@@ -56,6 +56,10 @@ export class ListarEquiposTorneoBasquetbolComponent implements OnInit {
 
       this.torneoService.BorrarEquipoBasquetbol(id).subscribe((respuesta)=>{
                 this.Equipos.splice(iControl,1);
+                this.torneoService.ObtenerEquiposBasquetbolTorneo(this.torneo).subscribe(respuesta=>{
+                  console.log(respuesta);
+                  this.Equipos=respuesta;
+                });
       });
     }
       

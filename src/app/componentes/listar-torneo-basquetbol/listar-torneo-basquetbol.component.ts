@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ListarTorneoBasquetbolComponent implements OnInit {
   Torneos: any;
   filterPost = '';
+  // filterPost :any;
   nomUsuario = '';
   usuario = '';
   page_size: number = 10;
@@ -52,7 +53,13 @@ export class ListarTorneoBasquetbolComponent implements OnInit {
 
       this.torneoService.BorrarTorneoBasquetbol(id).subscribe((respuesta) => {
         this.Torneos.splice(iControl, 1);
+        this.torneoService.ObtenerTorneosBasquetbol().subscribe(respuesta => {
+          console.log(respuesta);
+          this.Torneos = respuesta;
+        });
+        
       });
+      
     }
 
   }

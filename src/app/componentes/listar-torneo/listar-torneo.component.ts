@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class ListarTorneoComponent implements OnInit {
 
   Torneos:any;
-  filterPost = ''; 
+  filterPost =''; 
   nomUsuario='';
   usuario='';
   page_size: number = 10;
@@ -52,8 +52,14 @@ export class ListarTorneoComponent implements OnInit {
 
       this.torneoService.BorrarTorneo(id).subscribe((respuesta)=>{
                 this.Torneos.splice(iControl,1);
+                this.torneoService.ObtenerTorneos().subscribe(respuesta=>{
+                  console.log(respuesta);
+                  this.Torneos=respuesta;
+                });    
       });
+      
     }
+    
       
   }
 

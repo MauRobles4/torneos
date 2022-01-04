@@ -54,7 +54,12 @@ export class ListarUsuariosComponent implements OnInit {
 
       this.torneoService.BorrarUsuario(id).subscribe((respuesta) => {
         this.Usuarios.splice(iControl, 1);
+        this.torneoService.ObtenerUsuarios().subscribe(respuesta => {
+          console.log(respuesta);
+          this.Usuarios = respuesta;
+        });
       });
+      
     }
   }
 

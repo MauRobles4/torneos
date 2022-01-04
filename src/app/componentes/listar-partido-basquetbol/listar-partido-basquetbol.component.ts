@@ -51,6 +51,10 @@ export class ListarPartidoBasquetbolComponent implements OnInit {
 
       this.torneoService.BorrarPartidoBasquetbol(id).subscribe((respuesta) => {
         this.Partidos.splice(iControl, 1);
+        this.torneoService.ObtenerPartidosBasquetbol().subscribe(respuesta => {
+          console.log(respuesta);
+          this.Partidos = respuesta;
+        });
       });
     }
 

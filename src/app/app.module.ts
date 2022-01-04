@@ -47,6 +47,7 @@ import { EditarUsuarioComponent } from './componentes/editar-usuario/editar-usua
 import { NgChartsModule } from 'ng2-charts';
 import { GraficasFutbolComponent } from './componentes/graficas-futbol/graficas-futbol.component';
 import { TablaClasificacionComponent } from './componentes/tabla-clasificacion/tabla-clasificacion.component';
+import { AgregarUserComponent } from './componentes/agregar-user/agregar-user.component';
 
 
 @NgModule({
@@ -88,7 +89,8 @@ import { TablaClasificacionComponent } from './componentes/tabla-clasificacion/t
     FilterUsuarioPipe,
     EditarUsuarioComponent,
     GraficasFutbolComponent,
-    TablaClasificacionComponent
+    TablaClasificacionComponent,
+    AgregarUserComponent
   ],
   imports: [
     BrowserModule,

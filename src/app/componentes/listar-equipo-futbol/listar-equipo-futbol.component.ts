@@ -51,6 +51,10 @@ export class ListarEquipoFutbolComponent implements OnInit {
 
       this.torneoService.BorrarEquipoFutbol(id).subscribe((respuesta) => {
         this.Equipos.splice(iControl, 1);
+        this.torneoService.ObtenerEquiposFutbol().subscribe(respuesta => {
+          console.log(respuesta);
+          this.Equipos = respuesta;
+        });
         
       });
     }

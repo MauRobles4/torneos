@@ -7,6 +7,7 @@ import { AgregarPartidoBasquetbolComponent } from './componentes/agregar-partido
 import { AgregarPartidoFutbolTorneoComponent } from './componentes/agregar-partido-futbol-torneo/agregar-partido-futbol-torneo.component';
 import { AgregarPartidoFutbolComponent } from './componentes/agregar-partido-futbol/agregar-partido-futbol.component';
 import { AgregarTorneoComponent } from './componentes/agregar-torneo/agregar-torneo.component';
+import { AgregarUserComponent } from './componentes/agregar-user/agregar-user.component';
 import { AgregarUsuarioComponent } from './componentes/agregar-usuario/agregar-usuario.component';
 import { EditarEquipoBasquetbolComponent } from './componentes/editar-equipo-basquetbol/editar-equipo-basquetbol.component';
 import { EditarEquipoFutbolComponent } from './componentes/editar-equipo-futbol/editar-equipo-futbol.component';
@@ -62,6 +63,7 @@ const routes: Routes = [
   {path:'agregar-partido-basquetbol-torneo/:torneo',component:AgregarPartidoBasquetbolTorneoComponent},
   {path:'login',component:LoginComponent},
   {path:'agregar-usuario',component:AgregarUsuarioComponent},
+  {path:'agregar-user',component:AgregarUserComponent},
   {path:'editar-usuario/:id',component:EditarUsuarioComponent},
   {path:'listar-usuarios',component:ListarUsuariosComponent},
   {path:'home',component:HomeComponent},
