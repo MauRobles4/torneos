@@ -149,7 +149,7 @@
                    <td>{{partido.torneo}}</td>
                    
                    <td><a 
-                    *ngIf="usuario=='Administrador'"  class="btn btn-primary" routerLink="/editar-partido-futbol/{{partido.id_partido}}" >Editar</a>  |
+                    *ngIf="usuario=='Administrador'"  class="btn btn-primary" routerLink="/editar-partido-futbol/{{partido.id_partido}}/{{partido.torneo}}" >Editar</a>  |
                     
                     <a 
                     *ngIf="usuario=='Administrador'" class="btn btn-danger" (click)="borrarRegistro(partido.id_partido,iControl)" role="button">Eliminar</a> 

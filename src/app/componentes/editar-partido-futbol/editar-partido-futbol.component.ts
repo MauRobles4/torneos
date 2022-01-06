@@ -13,6 +13,7 @@ import {Router,ActivatedRoute} from '@angular/router';
 export class EditarPartidoFutbolComponent implements OnInit {
   formularioDePartido:FormGroup;
   elID:any;
+  torneo:any;
   Torneos:any;
   nomUsuario='';
   usuario='';
@@ -30,6 +31,7 @@ export class EditarPartidoFutbolComponent implements OnInit {
     this.nomUsuario=cookieService.get("nombreUsuario");
     this.usuario=cookieService.get("tipoUsuario");
     this.elID=this.activateRoute.snapshot.paramMap.get('id');
+    this.torneo=this.activateRoute.snapshot.paramMap.get('torneo');
     console.log("Este es el id del editar "+this.elID);
 
 
@@ -74,7 +76,7 @@ export class EditarPartidoFutbolComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.torneoService.ObtenerEquiposFutbol().subscribe(respuesta=>{
+    this.torneoService.ObtenerEquiposFutbolTorneo(this.torneo).subscribe(respuesta=>{
       console.log(respuesta);
       this.Equipos=respuesta;
     });
@@ -87,6 +89,16 @@ export class EditarPartidoFutbolComponent implements OnInit {
   enviarDatos():any{
     // console.log("Me presionaste ");
     console.log(this.elID);
+    if (this.formularioDePartido.value.goles_visitante==null){
+      
+      this.formularioDePartido.value.goles_visitante=0;
+      console.log("Entra en visitante");
+    } 
+    if(this.formularioDePartido.value.goles_local==null){
+
+      this.formularioDePartido.value.goles_local=0;
+      console.log("Entra en local");
+    }
     console.log(this.formularioDePartido.value);
     this.torneoService.EditarPartidoFutbol(this.elID,this.formularioDePartido.value).subscribe(()=>{
       alert("Partido editado exitosamente");
