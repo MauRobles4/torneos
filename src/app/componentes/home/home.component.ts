@@ -57,17 +57,24 @@ export class HomeComponent implements OnInit {
       
     });
     // OBTENER FECHA
-    this.time =this.today.getFullYear() + "-" +(this.today.getMonth()+1) + "-" + (this.today.getDay()+15) + " " + this.today.getHours() + ":" + this.today.getMinutes() + ":" + this.today.getSeconds();
+    this.time =this.today.getFullYear() + "-" +(this.today.getMonth()+1) + "-" + (this.today.getDay()+13) + " " + this.today.getHours() + ":" + this.today.getMinutes() + ":" + this.today.getSeconds();
     console.log(this.time);
 
     this.torneoService.ObtenerProximosPartidosFutbol(this.time).subscribe(respuesta=>{
       console.log(respuesta);
       // console.log("esta es la fecha enviada como parametro "+ this.fecha_final);
       this.Partidos=respuesta;
+      if((respuesta[0].success ==0)){
+        alert("No hay partidos recientes de futbol");
+      }
     });
 
     this.torneoService.ObtenerProximosPartidosBasquetbol(this.time).subscribe(respuesta2=>{
       console.log(respuesta2);
+      
+      if((respuesta2[0].success ==0)){
+        alert("No hay partidos recientes de basquetbol");
+      }
       this.Partidos2=respuesta2;
     });
   }

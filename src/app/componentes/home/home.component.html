@@ -130,6 +130,7 @@
            </thead>
            <tbody>
                <tr *ngFor="let partido of Partidos; let iControl=index">
+                    <td *ngIf="partido.id_partido==''" >No hay proximos partidos</td>
                    <td >{{partido.id_partido}}</td>
                    <td>{{partido.equipo1}} - {{partido.equipo2}}</td>
                    <td>{{partido.horario}}</td>
@@ -169,6 +170,7 @@
            </thead>
            <tbody>
                <tr *ngFor="let partido of Partidos2; let iControl=index">
+                <td *ngIf="Partidos2.id_partido==''" >No hay proximos partidos</td>
                    <td >{{partido.id_partido}}</td>
                    <td>{{partido.equipo1}} - {{partido.equipo2}}</td>
                    <td>{{partido.horario}}</td>
